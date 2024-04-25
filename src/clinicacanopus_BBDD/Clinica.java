@@ -102,6 +102,7 @@ public class Clinica extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				
 				Principal_cliente vPrincipal = new Principal_cliente();
 				vPrincipal.setVisible(true);
 				
