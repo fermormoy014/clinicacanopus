@@ -16,6 +16,9 @@ import javax.swing.JRadioButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Registro extends JFrame {
 
@@ -31,8 +34,7 @@ public class Registro extends JFrame {
 	private JTextField especie_texto;
 	private JTextField raza_texto;
 	private JTextField nombremascota__texto;
-	private JTextField Nacimiento_texto;
-	private JTextField textField_11;
+	private JTextField peso_texto;
 	private JTextField contrasena_texto;
 
 	/**
@@ -81,6 +83,7 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		usuario_texto = new JTextField();
+		
 		usuario_texto.setBounds(78, 8, 115, 20);
 		panel.add(usuario_texto);
 		usuario_texto.setColumns(10);
@@ -91,6 +94,19 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_2);
 		
 		nombre_texto = new JTextField();
+		
+		//ESCRITURA SOLO TEXTO
+		nombre_texto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				
+				char c =e.getKeyChar();
+				
+				if ((c<'a' || c>'z')) e.consume();
+				
+			}
+		});
 		nombre_texto.setBounds(78, 33, 115, 20);
 		panel.add(nombre_texto);
 		nombre_texto.setColumns(10);
@@ -101,6 +117,18 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_3);
 		
 		apellidos_texto = new JTextField();
+		//ESCRITURA SOLO TEXTO
+				apellidos_texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						char c =e.getKeyChar();
+						
+						if ((c<'a' || c>'z')) e.consume();
+						
+					}
+				});
 		apellidos_texto.setBounds(78, 58, 115, 20);
 		panel.add(apellidos_texto);
 		apellidos_texto.setColumns(10);
@@ -111,6 +139,19 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_4);
 		
 		dni_texto = new JTextField();
+		dni_texto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				
+				
+		
+				if(dni_texto.getText().length()>=9) {
+					e.consume();
+				}
+				
+			}
+		});
 		dni_texto.setBounds(78, 83, 115, 20);
 		panel.add(dni_texto);
 		dni_texto.setColumns(10);
@@ -126,6 +167,25 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_6);
 		
 		telefono_texto = new JTextField();
+		//ESCRITURA SOLO NUMERO
+				telefono_texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						int c =e.getKeyChar();
+						
+						
+						
+						if ((c<'0' || c>'9')) e.consume();
+						
+						if(telefono_texto.getText().length()>=9) {
+							e.consume();
+						}
+						
+					}
+				});
+				
 		telefono_texto.setBounds(78, 108, 115, 20);
 		panel.add(telefono_texto);
 		telefono_texto.setColumns(10);
@@ -184,6 +244,18 @@ public class Registro extends JFrame {
 		panel_1.add(lblNewLabel_2_1);
 		
 		especie_texto = new JTextField();
+		//ESCRITURA SOLO TEXTO
+				especie_texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						char c =e.getKeyChar();
+						
+						if ((c<'a' || c>'z')) e.consume();
+						
+					}
+				});
 		especie_texto.setColumns(10);
 		especie_texto.setBounds(90, 33, 99, 20);
 		panel_1.add(especie_texto);
@@ -194,6 +266,18 @@ public class Registro extends JFrame {
 		panel_1.add(lblNewLabel_3_1);
 		
 		raza_texto = new JTextField();
+		//ESCRITURA SOLO TEXTO
+				raza_texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						char c =e.getKeyChar();
+						
+						if ((c<'a' || c>'z')) e.consume();
+						
+					}
+				});
 		raza_texto.setColumns(10);
 		raza_texto.setBounds(90, 58, 99, 20);
 		panel_1.add(raza_texto);
@@ -204,6 +288,18 @@ public class Registro extends JFrame {
 		panel_1.add(lblNewLabel_4_1);
 		
 		nombremascota__texto = new JTextField();
+		//ESCRITURA SOLO TEXTO
+				nombremascota__texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						char c =e.getKeyChar();
+						
+						if ((c<'a' || c>'z')) e.consume();
+						
+					}
+				});
 		nombremascota__texto.setColumns(10);
 		nombremascota__texto.setBounds(90, 83, 99, 20);
 		panel_1.add(nombremascota__texto);
@@ -218,15 +314,24 @@ public class Registro extends JFrame {
 		lblNewLabel_6_1.setBounds(10, 138, 46, 14);
 		panel_1.add(lblNewLabel_6_1);
 		
-		Nacimiento_texto = new JTextField();
-		Nacimiento_texto.setColumns(10);
-		Nacimiento_texto.setBounds(90, 108, 99, 20);
-		panel_1.add(Nacimiento_texto);
-		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(90, 133, 99, 20);
-		panel_1.add(textField_11);
+		peso_texto = new JTextField();
+		//ESCRITURA SOLO NUMERO
+		peso_texto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				
+				int c =e.getKeyChar();
+				
+				
+				
+				if ((c<'0' || c>'9')) e.consume();
+				
+			}
+		});
+		peso_texto.setColumns(10);
+		peso_texto.setBounds(90, 133, 99, 20);
+		panel_1.add(peso_texto);
 		
 		JLabel lblNewLabel_6_1_1 = new JLabel("Vacuna rabia");
 		lblNewLabel_6_1_1.setFont(new Font("Carlito", Font.PLAIN, 13));
@@ -245,22 +350,6 @@ public class Registro extends JFrame {
 		rdbtnNewRadioButton_1_1.setBounds(143, 159, 44, 23);
 		panel_1.add(rdbtnNewRadioButton_1_1);
 		
-		JToggleButton tglbtnNewToggleButton = new JToggleButton("Guardar datos");
-		tglbtnNewToggleButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-				
-				
-			}
-		});
-		tglbtnNewToggleButton.setBounds(389, 318, 116, 23);
-		contentPane.add(tglbtnNewToggleButton);
-		
-		JToggleButton tglbtnNewToggleButton_1 = new JToggleButton("Visualizar los datos");
-		tglbtnNewToggleButton_1.setBounds(256, 318, 123, 23);
-		contentPane.add(tglbtnNewToggleButton_1);
-		
 		JLabel lblNewLabel_7 = new JLabel("Datos cliente");
 		lblNewLabel_7.setFont(new Font("Carlito", Font.BOLD, 16));
 		lblNewLabel_7.setBounds(93, 85, 98, 18);
@@ -270,5 +359,23 @@ public class Registro extends JFrame {
 		lblNewLabel_7_1.setFont(new Font("Carlito", Font.BOLD, 16));
 		lblNewLabel_7_1.setBounds(330, 85, 106, 18);
 		contentPane.add(lblNewLabel_7_1);
+		
+		JButton btnGuardar = new JButton("Guardar datos");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(usuario_texto  != null && apellidos_texto != null && nombre_texto !=null && contrasena_texto !=null && dni_texto !=null && telefono_texto != null ) {
+					
+				}
+				
+				
+			}
+		});
+		btnGuardar.setBounds(400, 318, 117, 23);
+		contentPane.add(btnGuardar);
+		
+		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
+		btnVisualizarLosDatos.setBounds(265, 318, 117, 23);
+		contentPane.add(btnVisualizarLosDatos);
 	}
 }
