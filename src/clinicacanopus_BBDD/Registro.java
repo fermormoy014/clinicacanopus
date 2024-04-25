@@ -19,6 +19,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JCheckBox;
 
 public class Registro extends JFrame {
 
@@ -195,23 +197,6 @@ public class Registro extends JFrame {
 		panel.add(email_texto);
 		email_texto.setColumns(10);
 		
-		JLabel lblNewLabel_6_2 = new JLabel("Seguro médico");
-		lblNewLabel_6_2.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_6_2.setBounds(10, 193, 99, 19);
-		panel.add(lblNewLabel_6_2);
-		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Sí");
-		rdbtnNewRadioButton.setFont(new Font("Carlito", Font.PLAIN, 12));
-		rdbtnNewRadioButton.setBackground(SystemColor.text);
-		rdbtnNewRadioButton.setBounds(102, 191, 38, 23);
-		panel.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("No");
-		rdbtnNewRadioButton_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		rdbtnNewRadioButton_1.setBackground(SystemColor.textHighlightText);
-		rdbtnNewRadioButton_1.setBounds(142, 191, 44, 23);
-		panel.add(rdbtnNewRadioButton_1);
-		
 		JLabel lblNewLabel_6_3 = new JLabel("Contraseña");
 		lblNewLabel_6_3.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_6_3.setBounds(10, 163, 130, 19);
@@ -221,6 +206,10 @@ public class Registro extends JFrame {
 		contrasena_texto.setBounds(78, 160, 115, 19);
 		panel.add(contrasena_texto);
 		contrasena_texto.setColumns(10);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Seguro Médico");
+		chckbxNewCheckBox.setBounds(20, 189, 158, 23);
+		panel.add(chckbxNewCheckBox);
 		
 		Panel panel_1 = new Panel();
 		panel_1.setLayout(null);
@@ -234,6 +223,20 @@ public class Registro extends JFrame {
 		panel_1.add(lblNewLabel_1_1);
 		
 		identificador_texto = new JTextField();
+		identificador_texto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				
+				int c =e.getKeyChar();
+				
+				
+				
+				if ((c<'0' || c>'9')) e.consume();
+				
+			}
+		});
+		
 		identificador_texto.setColumns(10);
 		identificador_texto.setBounds(90, 8, 99, 20);
 		panel_1.add(identificador_texto);
@@ -306,7 +309,7 @@ public class Registro extends JFrame {
 		
 		JLabel lblNewLabel_5_1 = new JLabel("F. Nacimiento");
 		lblNewLabel_5_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_5_1.setBounds(10, 113, 99, 14);
+		lblNewLabel_5_1.setBounds(0, 113, 99, 14);
 		panel_1.add(lblNewLabel_5_1);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Peso");
@@ -333,22 +336,14 @@ public class Registro extends JFrame {
 		peso_texto.setBounds(90, 133, 99, 20);
 		panel_1.add(peso_texto);
 		
-		JLabel lblNewLabel_6_1_1 = new JLabel("Vacuna rabia");
-		lblNewLabel_6_1_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_6_1_1.setBounds(10, 163, 72, 14);
-		panel_1.add(lblNewLabel_6_1_1);
+		JDateChooser Fecha_nacimiento = new JDateChooser();
+		Fecha_nacimiento.setDateFormatString("yyyy-MM-dd");
+		Fecha_nacimiento.setBounds(90, 107, 99, 20);
+		panel_1.add(Fecha_nacimiento);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Sí");
-		rdbtnNewRadioButton_2.setFont(new Font("Carlito", Font.PLAIN, 13));
-		rdbtnNewRadioButton_2.setBackground(SystemColor.text);
-		rdbtnNewRadioButton_2.setBounds(103, 159, 38, 23);
-		panel_1.add(rdbtnNewRadioButton_2);
-		
-		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("No");
-		rdbtnNewRadioButton_1_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		rdbtnNewRadioButton_1_1.setBackground(SystemColor.textHighlightText);
-		rdbtnNewRadioButton_1_1.setBounds(143, 159, 44, 23);
-		panel_1.add(rdbtnNewRadioButton_1_1);
+		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Vacuna Rabia");
+		chckbxNewCheckBox_1.setBounds(25, 168, 152, 23);
+		panel_1.add(chckbxNewCheckBox_1);
 		
 		JLabel lblNewLabel_7 = new JLabel("Datos cliente");
 		lblNewLabel_7.setFont(new Font("Carlito", Font.BOLD, 16));
@@ -364,7 +359,10 @@ public class Registro extends JFrame {
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				if(usuario_texto  != null && apellidos_texto != null && nombre_texto !=null && contrasena_texto !=null && dni_texto !=null && telefono_texto != null ) {
+				if(usuario_texto  != null && apellidos_texto != null && nombre_texto !=null && contrasena_texto !=null && 
+						dni_texto !=null && telefono_texto != null && email_texto !=null && contrasena_texto != null && identificador_texto !=null && 
+						especie_texto!=null &&  raza_texto!= null && nombremascota__texto!=null && peso_texto!=null && rdbtnNewRadioButton_2 != null || rdbtnNewRadioButton_1_1 !=null   ) {
+					
 					
 				}
 				
