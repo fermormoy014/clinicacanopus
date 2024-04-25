@@ -150,6 +150,7 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_4);
 		
 		dni_texto = new JTextField();
+		
 		dni_texto.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -401,6 +402,8 @@ public class Registro extends JFrame {
 						dni_texto !=null && telefono_texto != null && email_texto !=null && contrasena_texto != null && identificador_texto !=null && 
 						especie_texto!=null &&  raza_texto!= null && nombremascota__texto!=null && peso_texto!=null) {
 					
+					
+					
 					ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 					
 					try {
@@ -447,6 +450,17 @@ public class Registro extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
+		btnVisualizarLosDatos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String info =dni_texto.getText();
+				
+				Datos a = new Datos();
+				a.setVisible(true);
+				a.idDNI.setText(dni_texto);
+				
+			}
+		});
 		btnVisualizarLosDatos.setBounds(265, 318, 117, 23);
 		contentPane.add(btnVisualizarLosDatos);
 		

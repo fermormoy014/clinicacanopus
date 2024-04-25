@@ -12,12 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 
-public class Datos extends JFrame {
+public class Datos extends JFrame  {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	protected Object idDNI;
 
 	/**
 	 * Launch the application.
@@ -37,20 +42,24 @@ public class Datos extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public Datos() {
+	public Datos() throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 142, 53);
+		lblNewLabel.setBounds(34, 25, 142, 53);
 	
 		contentPane.add(lblNewLabel);
 	
@@ -97,37 +106,113 @@ public class Datos extends JFrame {
 		panel.add(lblNewLabel_3);
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 11));
 		
-		JButton btnNewButton = new JButton("Modificar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel Usuario_nombre = new JLabel("New label");
+		Usuario_nombre.setBounds(60, 7, 46, 14);
+		panel.add(Usuario_nombre);
+		
+		JLabel Dni_text = new JLabel("New label");
+		Dni_text.setBounds(32, 32, 46, 14);
+		panel.add(Dni_text);
+		
+		JLabel Fechanacimiento = new JLabel("New label");
+		Fechanacimiento.setBounds(118, 58, 46, 14);
+		panel.add(Fechanacimiento);
+		
+		JLabel Email = new JLabel("New label");
+		Email.setBounds(60, 76, 46, 14);
+		panel.add(Email);
+		
+		JLabel Telefono = new JLabel("New label");
+		Telefono.setBounds(118, 93, 46, 14);
+		panel.add(Telefono);
+		
+		JLabel Seguro = new JLabel("New label");
+		Seguro.setBounds(60, 112, 46, 14);
+		panel.add(Seguro);
+		
+		JLabel id = new JLabel("New label");
+		id.setBounds(250, 43, 46, 14);
+		contentPane.add(id);
+		
+		
+		try {
+			conect.conectar();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		String sentencia = "SELECT (Nombre, Apellidos, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro) FROM Cita ";
+		
+		
+		
+		 
+		
+			ResultSet resultado = conect.ejecutarSelect(sentencia);
+		
+		
+		
+		try {
+			while (resultado.next()){
+				 
+				 
+				 try {
+					 
+					 
+					 String nuevonombre=resultado.getString("Nombre");
+						String nuevoApellidos = resultado.getString("Apellidos");
+						String nuevaFecha = resultado.getString("Fecha_Nacimiento");
+						String nuevoEmail = resultado.getString("Email");
+						int nuevotelef = resultado.getInt("Telefono");
+						int nuevoSeguro = resultado.getInt("Seguro");
+						
+						
+					
+				}
+				catch (Exception e) {
+					
+				}
+				 
+				 finally {
+					 {
+							try {
+								conect.desconectar();
+							} catch (SQLException a) {
+								// TODO Auto-generated catch block
+								a.printStackTrace();
+							}
+				 }
+				 }
+			
+			
+			
 				
 				
-				
+					 
+
+			
+			JLabel lblNewLabel_8 = new JLabel("¿Desea modificar la contraseña?");
+			lblNewLabel_8.setForeground(new Color(95, 158, 160));
+			lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 10));
+			lblNewLabel_8.setBounds(243, 206, 167, 14);
+			contentPane.add(lblNewLabel_8);
+			
+			JLabel lblNewLabel_9 = new JLabel("New label");
+			lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\huella (1).png"));
+			lblNewLabel_9.setBounds(272, 89, 109, 106);
+			contentPane.add(lblNewLabel_9);
+
+
+
+
+
+
 			}
-		});
-		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 9));
-		btnNewButton.setBounds(272, 225, 89, 14);
-		contentPane.add(btnNewButton);
-		
-		JLabel lblNewLabel_8 = new JLabel("¿Desea modificar la contraseña?");
-		lblNewLabel_8.setForeground(new Color(95, 158, 160));
-		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 10));
-		lblNewLabel_8.setBounds(243, 206, 167, 14);
-		contentPane.add(lblNewLabel_8);
-		
-		JLabel lblNewLabel_9 = new JLabel("New label");
-		lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\huella (1).png"));
-		lblNewLabel_9.setBounds(272, 89, 109, 106);
-		contentPane.add(lblNewLabel_9);
-	
-	
-	
-	
-	
-	
-	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	}
-	
-
 }
