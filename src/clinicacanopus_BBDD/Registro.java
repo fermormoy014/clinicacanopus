@@ -14,24 +14,26 @@ import java.awt.Font;
 import javax.swing.JToggleButton;
 import javax.swing.JRadioButton;
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Registro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	private JTextField usuario_texto;
+	private JTextField nombre_texto;
+	private JTextField apellidos_texto;
+	private JTextField dni_texto;
+	private JTextField telefono_texto;
+	private JTextField email_texto;
+	private JTextField identificador_texto;
+	private JTextField especie_texto;
+	private JTextField raza_texto;
+	private JTextField nombremascota__texto;
+	private JTextField Nacimiento_texto;
 	private JTextField textField_11;
-	private JTextField textField_12;
+	private JTextField contrasena_texto;
 
 	/**
 	 * Launch the application.
@@ -78,40 +80,40 @@ public class Registro extends JFrame {
 		lblNewLabel_1.setBounds(10, 13, 46, 14);
 		panel.add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(78, 8, 115, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		usuario_texto = new JTextField();
+		usuario_texto.setBounds(78, 8, 115, 20);
+		panel.add(usuario_texto);
+		usuario_texto.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nombre");
 		lblNewLabel_2.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_2.setBounds(10, 38, 46, 14);
 		panel.add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(78, 33, 115, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		nombre_texto = new JTextField();
+		nombre_texto.setBounds(78, 33, 115, 20);
+		panel.add(nombre_texto);
+		nombre_texto.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Apellidos");
 		lblNewLabel_3.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_3.setBounds(10, 63, 61, 14);
 		panel.add(lblNewLabel_3);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(78, 58, 115, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		apellidos_texto = new JTextField();
+		apellidos_texto.setBounds(78, 58, 115, 20);
+		panel.add(apellidos_texto);
+		apellidos_texto.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("DNI");
 		lblNewLabel_4.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_4.setBounds(10, 88, 46, 14);
 		panel.add(lblNewLabel_4);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(78, 83, 115, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		dni_texto = new JTextField();
+		dni_texto.setBounds(78, 83, 115, 20);
+		panel.add(dni_texto);
+		dni_texto.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("T. Contacto");
 		lblNewLabel_5.setFont(new Font("Carlito", Font.PLAIN, 13));
@@ -123,15 +125,15 @@ public class Registro extends JFrame {
 		lblNewLabel_6.setBounds(10, 138, 46, 14);
 		panel.add(lblNewLabel_6);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(78, 108, 115, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		telefono_texto = new JTextField();
+		telefono_texto.setBounds(78, 108, 115, 20);
+		panel.add(telefono_texto);
+		telefono_texto.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(78, 133, 115, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
+		email_texto = new JTextField();
+		email_texto.setBounds(78, 133, 115, 20);
+		panel.add(email_texto);
+		email_texto.setColumns(10);
 		
 		JLabel lblNewLabel_6_2 = new JLabel("Seguro médico");
 		lblNewLabel_6_2.setFont(new Font("Carlito", Font.PLAIN, 13));
@@ -155,10 +157,10 @@ public class Registro extends JFrame {
 		lblNewLabel_6_3.setBounds(10, 163, 130, 19);
 		panel.add(lblNewLabel_6_3);
 		
-		textField_12 = new JTextField();
-		textField_12.setBounds(78, 160, 115, 19);
-		panel.add(textField_12);
-		textField_12.setColumns(10);
+		contrasena_texto = new JTextField();
+		contrasena_texto.setBounds(78, 160, 115, 19);
+		panel.add(contrasena_texto);
+		contrasena_texto.setColumns(10);
 		
 		Panel panel_1 = new Panel();
 		panel_1.setLayout(null);
@@ -171,40 +173,40 @@ public class Registro extends JFrame {
 		lblNewLabel_1_1.setBounds(10, 13, 131, 14);
 		panel_1.add(lblNewLabel_1_1);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(90, 8, 99, 20);
-		panel_1.add(textField_6);
+		identificador_texto = new JTextField();
+		identificador_texto.setColumns(10);
+		identificador_texto.setBounds(90, 8, 99, 20);
+		panel_1.add(identificador_texto);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Especie");
 		lblNewLabel_2_1.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_2_1.setBounds(10, 38, 46, 14);
 		panel_1.add(lblNewLabel_2_1);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(90, 33, 99, 20);
-		panel_1.add(textField_7);
+		especie_texto = new JTextField();
+		especie_texto.setColumns(10);
+		especie_texto.setBounds(90, 33, 99, 20);
+		panel_1.add(especie_texto);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Raza");
 		lblNewLabel_3_1.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_3_1.setBounds(10, 63, 46, 14);
 		panel_1.add(lblNewLabel_3_1);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(90, 58, 99, 20);
-		panel_1.add(textField_8);
+		raza_texto = new JTextField();
+		raza_texto.setColumns(10);
+		raza_texto.setBounds(90, 58, 99, 20);
+		panel_1.add(raza_texto);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Nombre");
 		lblNewLabel_4_1.setFont(new Font("Carlito", Font.PLAIN, 13));
 		lblNewLabel_4_1.setBounds(10, 88, 46, 14);
 		panel_1.add(lblNewLabel_4_1);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(90, 83, 99, 20);
-		panel_1.add(textField_9);
+		nombremascota__texto = new JTextField();
+		nombremascota__texto.setColumns(10);
+		nombremascota__texto.setBounds(90, 83, 99, 20);
+		panel_1.add(nombremascota__texto);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("F. Nacimiento");
 		lblNewLabel_5_1.setFont(new Font("Carlito", Font.PLAIN, 13));
@@ -216,10 +218,10 @@ public class Registro extends JFrame {
 		lblNewLabel_6_1.setBounds(10, 138, 46, 14);
 		panel_1.add(lblNewLabel_6_1);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(90, 108, 99, 20);
-		panel_1.add(textField_10);
+		Nacimiento_texto = new JTextField();
+		Nacimiento_texto.setColumns(10);
+		Nacimiento_texto.setBounds(90, 108, 99, 20);
+		panel_1.add(Nacimiento_texto);
 		
 		textField_11 = new JTextField();
 		textField_11.setColumns(10);
@@ -244,6 +246,14 @@ public class Registro extends JFrame {
 		panel_1.add(rdbtnNewRadioButton_1_1);
 		
 		JToggleButton tglbtnNewToggleButton = new JToggleButton("Guardar datos");
+		tglbtnNewToggleButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				
+			}
+		});
 		tglbtnNewToggleButton.setBounds(389, 318, 116, 23);
 		contentPane.add(tglbtnNewToggleButton);
 		
