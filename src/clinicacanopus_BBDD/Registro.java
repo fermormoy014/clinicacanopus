@@ -19,8 +19,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JCheckBox;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 public class Registro extends JFrame {
 
@@ -38,11 +45,13 @@ public class Registro extends JFrame {
 	private JTextField nombremascota__texto;
 	private JTextField peso_texto;
 	private JTextField contrasena_texto;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -146,7 +155,19 @@ public class Registro extends JFrame {
 			public void keyTyped(KeyEvent e) {
 				
 				
-				
+				dni_texto.addKeyListener(new KeyAdapter() {
+					@Override
+					public void keyTyped(KeyEvent e) {
+						
+						
+						int c =e.getKeyChar();
+						
+						
+						
+						if ((c<'0' || c>'9')) e.consume();
+						
+					}
+				});
 		
 				if(dni_texto.getText().length()>=9) {
 					e.consume();
@@ -207,9 +228,25 @@ public class Registro extends JFrame {
 		panel.add(contrasena_texto);
 		contrasena_texto.setColumns(10);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Seguro Médico");
-		chckbxNewCheckBox.setBounds(20, 189, 158, 23);
-		panel.add(chckbxNewCheckBox);
+		JCheckBox Seguro_box = new JCheckBox("Seguro Médico");
+		Seguro_box.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if (Seguro_box.isSelected()) {
+					
+					
+					textField.setText("1");
+					
+					
+				}
+				
+				else {
+					textField.setText("0");
+				}
+			}
+		});
+		Seguro_box.setBounds(20, 189, 158, 23);
+		panel.add(Seguro_box);
 		
 		Panel panel_1 = new Panel();
 		panel_1.setLayout(null);
@@ -351,6 +388,7 @@ public class Registro extends JFrame {
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Datos mascota");
+		lblNewLabel_7_1.setText(getName());
 		lblNewLabel_7_1.setFont(new Font("Carlito", Font.BOLD, 16));
 		lblNewLabel_7_1.setBounds(330, 85, 106, 18);
 		contentPane.add(lblNewLabel_7_1);
@@ -361,19 +399,68 @@ public class Registro extends JFrame {
 				
 				if(usuario_texto  != null && apellidos_texto != null && nombre_texto !=null && contrasena_texto !=null && 
 						dni_texto !=null && telefono_texto != null && email_texto !=null && contrasena_texto != null && identificador_texto !=null && 
-						especie_texto!=null &&  raza_texto!= null && nombremascota__texto!=null && peso_texto!=null && rdbtnNewRadioButton_2 != null || rdbtnNewRadioButton_1_1 !=null   ) {
+						especie_texto!=null &&  raza_texto!= null && nombremascota__texto!=null && peso_texto!=null) {
+					
+					ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+					
+					try {
+						
+						
+						conect.conectar();
+						
+						
+						String sentencia="INSERT INTO Cliente(idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro)  VALUES ('"+dni_texto.getText()+"','"+nombre_texto.getText()+"','"+apellidos_texto.getText()+"','"
+						+Fecha_nacimiento.getDate()+"','"+email_texto.getText()+"','"+telefono_texto.getText()+"','"+textField.getText()+"' )";
+						
+						conect.ejecutarInsertDeleteUpdate(sentencia);
+						
+						
+						
+						
+					} catch (SQLException a) {
+						// TODO Auto-generated catch block
+						a.printStackTrace();
+					}
+					finally {
+						try {
+							conect.desconectar();
+						} catch (SQLException a) {
+							// TODO Auto-generated catch block
+							a.printStackTrace();
+						}
+					} 
 					
 					
 				}
 				
 				
 			}
-		});
+				
+					
+					
+				
+				
+			
+		})
+		;
 		btnGuardar.setBounds(400, 318, 117, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
 		btnVisualizarLosDatos.setBounds(265, 318, 117, 23);
 		contentPane.add(btnVisualizarLosDatos);
+		
+		textField = new JTextField();
+		textField.setVisible(false);
+		textField.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentHidden(ComponentEvent e) {
+			}
+		});
+		textField.setText("0");
+		textField.setBounds(202, 44, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
 	}
 }
+
