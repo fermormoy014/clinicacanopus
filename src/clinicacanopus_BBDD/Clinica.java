@@ -1,10 +1,13 @@
-package PROYECTO;
+package clinicacanopus_BBDD;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import BBDD.ConexionMySQL;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -26,6 +29,7 @@ public class Clinica extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPasswordField passwordField;
+	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
 	/**
 	 * Launch the application.
