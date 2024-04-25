@@ -1,4 +1,4 @@
-package PROYECTO;
+package clinicacanopus_BBDD;
 
 import java.awt.Color;
 import java.awt.Component;
