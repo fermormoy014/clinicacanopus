@@ -22,6 +22,7 @@ import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import com.toedter.calendar.JDateChooser;
@@ -46,7 +47,7 @@ public class Registro extends JFrame {
 	private JTextField peso_texto;
 	private JTextField contrasena_texto;
 	private JTextField textField;
-
+	static String fechaformateada;
 	/**
 	 * Launch the application.
 	 */
@@ -420,6 +421,8 @@ public class Registro extends JFrame {
 						
 						
 						
+						
+						
 					} catch (SQLException a) {
 						// TODO Auto-generated catch block
 						a.printStackTrace();
@@ -446,18 +449,45 @@ public class Registro extends JFrame {
 			
 		})
 		;
+
+
 		btnGuardar.setBounds(400, 318, 117, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
 		btnVisualizarLosDatos.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				
-				String info =dni_texto.getText();
+				try {
+					String fecha=Fecha_nacimiento.getDate().toString();
+					String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
+					String formatoJava="dd/MM/yyyy";
+					
+					SimpleDateFormat formato1 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
+					SimpleDateFormat formato2 = new SimpleDateFormat(formatoJava);
+					
+					
+						java.util.Date fecha1 = formato1.parse(fecha);
+						String fechaformateada = formato2.format(fecha1);
+						
+					Datos.nuevaFecha=fechaformateada;
+					Datos.nuevotelef=telefono_texto.getText();
+				Datos.nuevoDNI=dni_texto.getText();
+					Datos.nuevoEmail=email_texto.getText();
+					Datos.nuevonombre=nombre_texto.getText();
+					Datos.nuevoSeguro=textField.getText();
 				
 				Datos a = new Datos();
+				
+				
+				
+				
 				a.setVisible(true);
-				a.idDNI.setText(dni_texto);
+				
+				}
+				catch (Exception e3) {
+					e3.printStackTrace();
+				}
 				
 			}
 		});

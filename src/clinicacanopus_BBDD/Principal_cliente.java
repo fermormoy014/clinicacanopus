@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
@@ -75,8 +76,21 @@ public class Principal_cliente extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Datos vDatos = new Datos();
-				vDatos.setVisible(true);
+			
+					
+					try {
+						Datos vDatos = new Datos();
+						vDatos.setVisible(true);
+						
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					
+					
+
+				
 			}
 		});
 		btnNewButton_1.setFont(new Font("SansSerif", Font.PLAIN, 11));

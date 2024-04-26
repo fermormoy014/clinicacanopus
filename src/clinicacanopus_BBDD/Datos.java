@@ -17,12 +17,21 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class Datos extends JFrame  {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	protected Object idDNI;
+	public JPanel contentPane;
+	JTextField recibe;
+	
+	static String nuevonombre;
+	 
+	static String nuevoDNI;
+	static String nuevaFecha;
+	static String nuevoEmail;
+	static String nuevotelef;
+	static String nuevoSeguro;
 
 	/**
 	 * Launch the application.
@@ -46,7 +55,7 @@ public class Datos extends JFrame  {
 	 */
 	public Datos() throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 597, 421);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -65,7 +74,7 @@ public class Datos extends JFrame  {
 	
 		Panel panel = new Panel();
 		panel.setBackground(new Color(248, 248, 255));
-		panel.setBounds(21, 115, 201, 136);
+		panel.setBounds(21, 115, 322, 234);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -83,21 +92,21 @@ public class Datos extends JFrame  {
 		
 		JLabel lblNewLabel_6 = new JLabel("Telefono contacto:");
 		lblNewLabel_6.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_6.setBounds(10, 92, 113, 14);
+		lblNewLabel_6.setBounds(10, 141, 113, 14);
 		panel.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Seguro:");
 		lblNewLabel_7.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_7.setBounds(10, 111, 68, 14);
+		lblNewLabel_7.setBounds(10, 192, 68, 14);
 		panel.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_5 = new JLabel("Email:");
-		lblNewLabel_5.setBounds(10, 75, 46, 14);
+		lblNewLabel_5.setBounds(10, 102, 46, 14);
 		panel.add(lblNewLabel_5);
 		lblNewLabel_5.setFont(new Font("SansSerif", Font.BOLD, 11));
 		
 		JLabel lblNewLabel_4 = new JLabel("Fecha Nacimiento:");
-		lblNewLabel_4.setBounds(10, 57, 96, 14);
+		lblNewLabel_4.setBounds(10, 67, 140, 14);
 		panel.add(lblNewLabel_4);
 		lblNewLabel_4.setFont(new Font("Carlito", Font.BOLD, 12));
 		
@@ -107,83 +116,53 @@ public class Datos extends JFrame  {
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 11));
 		
 		JLabel Usuario_nombre = new JLabel("New label");
-		Usuario_nombre.setBounds(60, 7, 46, 14);
+		Usuario_nombre.setText(nuevonombre);
+		Usuario_nombre.setBounds(60, 7, 160, 14);
 		panel.add(Usuario_nombre);
 		
 		JLabel Dni_text = new JLabel("New label");
-		Dni_text.setBounds(32, 32, 46, 14);
+		Dni_text.setText(nuevoDNI);
+		Dni_text.setBounds(32, 32, 118, 14);
 		panel.add(Dni_text);
 		
+		
+		
+		
 		JLabel Fechanacimiento = new JLabel("New label");
-		Fechanacimiento.setBounds(118, 58, 46, 14);
+		Fechanacimiento.setText(nuevaFecha);
+		Fechanacimiento.setBounds(118, 68, 160, 14);
 		panel.add(Fechanacimiento);
 		
 		JLabel Email = new JLabel("New label");
-		Email.setBounds(60, 76, 46, 14);
+		Email.setText(nuevoEmail);
+		Email.setBounds(60, 103, 160, 14);
 		panel.add(Email);
 		
 		JLabel Telefono = new JLabel("New label");
-		Telefono.setBounds(118, 93, 46, 14);
+		Telefono.setText(nuevotelef);
+		Telefono.setBounds(118, 142, 160, 14);
 		panel.add(Telefono);
 		
 		JLabel Seguro = new JLabel("New label");
-		Seguro.setBounds(60, 112, 46, 14);
-		panel.add(Seguro);
-		
-		JLabel id = new JLabel("New label");
-		id.setBounds(250, 43, 46, 14);
-		contentPane.add(id);
-		
-		
-		try {
-			conect.conectar();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(nuevoSeguro=="1") {
+			
+			nuevoSeguro="Tiene el seguro al dia";
+			
 		}
 		
-		
-		String sentencia = "SELECT (Nombre, Apellidos, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro) FROM Cita ";
-		
-		
-		
-		 
-		
-			ResultSet resultado = conect.ejecutarSelect(sentencia);
+		else {
+			nuevoSeguro="No tiene seguro";
+		}
+		Seguro.setText(nuevoSeguro);
+		Seguro.setBounds(60, 193, 160, 14);
+		panel.add(Seguro);
 		
 		
 		
-		try {
-			while (resultado.next()){
-				 
-				 
-				 try {
-					 
-					 
-					 String nuevonombre=resultado.getString("Nombre");
-						String nuevoApellidos = resultado.getString("Apellidos");
-						String nuevaFecha = resultado.getString("Fecha_Nacimiento");
-						String nuevoEmail = resultado.getString("Email");
-						int nuevotelef = resultado.getInt("Telefono");
-						int nuevoSeguro = resultado.getInt("Seguro");
-						
-						
-					
-				}
-				catch (Exception e) {
-					
-				}
-				 
-				 finally {
-					 {
-							try {
-								conect.desconectar();
-							} catch (SQLException a) {
-								// TODO Auto-generated catch block
-								a.printStackTrace();
-							}
-				 }
-				 }
+		
+		
+		
+		
 			
 			
 			
@@ -208,11 +187,7 @@ public class Datos extends JFrame  {
 
 
 
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	
 	}
 }
