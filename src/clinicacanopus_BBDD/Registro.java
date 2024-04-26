@@ -7,6 +7,7 @@ import java.awt.Panel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
@@ -412,18 +413,37 @@ public class Registro extends JFrame {
 						
 						conect.conectar();
 						
+						String sentencia1= "SELECT NombreUsuario, idCliente FROM Cliente WHERE idCliente= '"+dni_texto.getText()+"' OR '"+usuario_texto.getText()+"'";
+						ResultSet resultado=conect.ejecutarSelect(sentencia1);
 						
-						String sentencia="INSERT INTO Cliente(idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro)  VALUES ('"+dni_texto.getText()+"','"+nombre_texto.getText()+"','"+apellidos_texto.getText()+"','"
-						+Fecha_nacimiento.getDate()+"','"+email_texto.getText()+"','"+telefono_texto.getText()+"','"+textField.getText()+"' )";
+						if(resultado.next()) {
+							
+							
+							
+							
+								JOptionPane.showMessageDialog(null, "error, usuario ya existente, vuelva a intentarlo");
+						}
+							else {
+								String sentencia="INSERT INTO Cliente(idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro, NombreUsuario, Contrasena)  VALUES ('"+dni_texto.getText()+"','"+nombre_texto.getText()+"','"+apellidos_texto.getText()+"','"
+										+Fecha_nacimiento.getDate()+"','"+email_texto.getText()+"','"+telefono_texto.getText()+"','"+textField.getText()+"', '"+usuario_texto.getText()+"', '"+contrasena_texto.getText()+"')";
+										
+										
+										conect.ejecutarInsertDeleteUpdate(sentencia);
+							}
+							
+							
+						}
 						
-						conect.ejecutarInsertDeleteUpdate(sentencia);
 						
 						
 						
 						
 						
 						
-					} catch (SQLException a) {
+						
+						
+						
+					 catch (SQLException a) {
 						// TODO Auto-generated catch block
 						a.printStackTrace();
 					}

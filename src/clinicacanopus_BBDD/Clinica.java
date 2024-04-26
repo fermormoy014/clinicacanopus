@@ -6,10 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import BBDD.ConexionMySQL;
+import clinicacanopus_BBDD.ConexionMySQL;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Canvas;
@@ -22,14 +23,17 @@ import javax.swing.JEditorPane;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class Clinica extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JPasswordField passwordField;
+	private JPasswordField Contrasena_ingresar;
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+	static String guardarUsuario;
 
 	/**
 	 * Launch the application.
@@ -81,30 +85,68 @@ public class Clinica extends JFrame {
 		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 13));
 		panel.add(lblNewLabel_1);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setFont(new Font("Consolas", Font.PLAIN, 10));
-		editorPane.setBounds(20, 62, 155, 14);
-		panel.add(editorPane);
+		JEditorPane Usuario_ingresar = new JEditorPane();
+		Usuario_ingresar.setFont(new Font("Consolas", Font.PLAIN, 10));
+		Usuario_ingresar.setBounds(20, 62, 155, 14);
+		panel.add(Usuario_ingresar);
 		
 		JLabel lblNewLabel_3 = new JLabel("Contraseña");
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		lblNewLabel_3.setBounds(10, 87, 95, 14);
 		panel.add(lblNewLabel_3);
 		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Consolas", Font.PLAIN, 10));
-		passwordField.setBounds(20, 112, 155, 14);
-		panel.add(passwordField);
+		Contrasena_ingresar = new JPasswordField();
+		Contrasena_ingresar.setFont(new Font("Consolas", Font.PLAIN, 10));
+		Contrasena_ingresar.setBounds(20, 112, 155, 14);
+		panel.add(Contrasena_ingresar);
 		
 		JButton btnNewButton = new JButton("Enviar");
 		btnNewButton.setBackground(new Color(60, 179, 113));
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 10));
 		btnNewButton.addActionListener(new ActionListener() {
+			@SuppressWarnings({ "deprecation" })
 			public void actionPerformed(ActionEvent e) {
+				ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 				
 				
-				Principal_cliente vPrincipal = new Principal_cliente();
-				vPrincipal.setVisible(true);
+				try {
+					conect.conectar();
+					
+					
+					String sentencia="SELECT * FROM Cliente WHERE NombreUsuario= '"+Usuario_ingresar.getText()+"'AND Contrasena = '"+Contrasena_ingresar.getText()+"'  ";
+					
+					 ResultSet resultado = conect.ejecutarSelect(sentencia) ;
+					 String usuarioCorrecto=null;
+					 String contrasenaCorrecta=null;
+					
+					if(resultado.next()) {
+						
+						
+						 usuarioCorrecto=resultado.getString(1);
+						 contrasenaCorrecta=resultado.getString(2);
+						JOptionPane.showMessageDialog(null, "Login correcto");
+						
+						
+						
+						Principal_cliente v1= new Principal_cliente();
+						v1.setVisible(true);
+						guardarUsuario=Usuario_ingresar.getText();
+					}
+					
+					
+					else {
+						JOptionPane.showMessageDialog(null, "error de login, vuelva a intentarlo");
+					}
+					
+					
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
+				
 				
 			}
 		});

@@ -11,7 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
@@ -23,6 +26,7 @@ public class Principal_cliente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
 	/**
 	 * Launch the application.
@@ -78,14 +82,61 @@ public class Principal_cliente extends JFrame {
 				
 			
 					
-					try {
-						Datos vDatos = new Datos();
-						vDatos.setVisible(true);
+					
+						try {
+							
+							
+							conect.conectar();
+							
+							 String sentencia= "SELECT idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro, NombreUsuario, Contrasena FROM Cliente  WHERE NombreUsuario = '"+Clinica.guardarUsuario+"'";
+							
+							ResultSet resultado = conect.ejecutarSelect(sentencia);
+							
+							while(resultado.next()) {
+								String fecha=resultado.getString("Fecha_Nacimiento");
+								String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
+								String formatoJava="dd/MM/yyyy";
+								
+								SimpleDateFormat formato1 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
+								SimpleDateFormat formato2 = new SimpleDateFormat(formatoJava);
+								
+								
+									java.util.Date fecha1 = formato1.parse(fecha);
+									String fechaformateada = formato2.format(fecha1);
+									
+								Datos.nuevaFecha=fechaformateada;
+								Datos.nuevotelef=resultado.getString("Telefono");
+							Datos.nuevoDNI=resultado.getString("idCliente");
+								Datos.nuevoEmail=resultado.getString("Email");
+								Datos.nuevonombre=resultado.getString("Nombre");
+								Datos.nuevoSeguro=resultado.getString("Seguro");
+								
+								
+								
+								
+								
+								
+							}
+							
+							
+							
+							
 						
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+						Datos a = new Datos();
+						
+						
+						
+						
+						a.setVisible(true);
+						
+						}
+						catch (Exception e3) {
+							e3.printStackTrace();
+						}
+						
+					
+						
+					 
 					
 					
 					
