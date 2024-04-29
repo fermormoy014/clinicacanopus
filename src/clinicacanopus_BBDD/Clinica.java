@@ -131,6 +131,7 @@ public class Clinica extends JFrame {
 						Principal_cliente v1= new Principal_cliente();
 						v1.setVisible(true);
 						guardarUsuario=Usuario_ingresar.getText();
+						
 					}
 					
 					

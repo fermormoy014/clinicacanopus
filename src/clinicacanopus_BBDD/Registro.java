@@ -49,6 +49,7 @@ public class Registro extends JFrame {
 	private JTextField contrasena_texto;
 	private JTextField textField;
 	static String fechaformateada;
+	private JTextField textField_1;
 	/**
 	 * Launch the application.
 	 */
@@ -81,12 +82,12 @@ public class Registro extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 142, 53);
+		lblNewLabel.setBounds(26, 27, 142, 53);
 		contentPane.add(lblNewLabel);
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(35, 99, 199, 218);
+		panel.setBounds(10, 109, 225, 243);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -97,7 +98,7 @@ public class Registro extends JFrame {
 		
 		usuario_texto = new JTextField();
 		
-		usuario_texto.setBounds(78, 8, 115, 20);
+		usuario_texto.setBounds(100, 8, 115, 20);
 		panel.add(usuario_texto);
 		usuario_texto.setColumns(10);
 		
@@ -110,17 +111,9 @@ public class Registro extends JFrame {
 		
 		//ESCRITURA SOLO TEXTO
 		nombre_texto.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-				
-				char c =e.getKeyChar();
-				
-				if ((c<'a' || c>'z')) e.consume();
-				
-			}
+			
 		});
-		nombre_texto.setBounds(78, 33, 115, 20);
+		nombre_texto.setBounds(100, 33, 115, 20);
 		panel.add(nombre_texto);
 		nombre_texto.setColumns(10);
 		
@@ -132,17 +125,9 @@ public class Registro extends JFrame {
 		apellidos_texto = new JTextField();
 		//ESCRITURA SOLO TEXTO
 				apellidos_texto.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(KeyEvent e) {
-						
-						
-						char c =e.getKeyChar();
-						
-						if ((c<'a' || c>'z')) e.consume();
-						
-					}
+					
 				});
-		apellidos_texto.setBounds(78, 58, 115, 20);
+		apellidos_texto.setBounds(100, 58, 115, 20);
 		panel.add(apellidos_texto);
 		apellidos_texto.setColumns(10);
 		
@@ -178,7 +163,7 @@ public class Registro extends JFrame {
 				
 			}
 		});
-		dni_texto.setBounds(78, 83, 115, 20);
+		dni_texto.setBounds(100, 83, 115, 20);
 		panel.add(dni_texto);
 		dni_texto.setColumns(10);
 		
@@ -212,12 +197,12 @@ public class Registro extends JFrame {
 					}
 				});
 				
-		telefono_texto.setBounds(78, 108, 115, 20);
+		telefono_texto.setBounds(100, 108, 115, 20);
 		panel.add(telefono_texto);
 		telefono_texto.setColumns(10);
 		
 		email_texto = new JTextField();
-		email_texto.setBounds(78, 133, 115, 20);
+		email_texto.setBounds(100, 133, 115, 20);
 		panel.add(email_texto);
 		email_texto.setColumns(10);
 		
@@ -227,7 +212,7 @@ public class Registro extends JFrame {
 		panel.add(lblNewLabel_6_3);
 		
 		contrasena_texto = new JTextField();
-		contrasena_texto.setBounds(78, 160, 115, 19);
+		contrasena_texto.setBounds(100, 160, 115, 19);
 		panel.add(contrasena_texto);
 		contrasena_texto.setColumns(10);
 		
@@ -248,13 +233,23 @@ public class Registro extends JFrame {
 				}
 			}
 		});
-		Seguro_box.setBounds(20, 189, 158, 23);
+		Seguro_box.setBounds(22, 213, 158, 23);
 		panel.add(Seguro_box);
+		
+		JLabel lblNewLabel_5_1_1 = new JLabel("F. Nacimiento");
+		lblNewLabel_5_1_1.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblNewLabel_5_1_1.setBounds(0, 190, 99, 14);
+		panel.add(lblNewLabel_5_1_1);
+		
+		JDateChooser Fecha_nacimiento = new JDateChooser();
+		Fecha_nacimiento.setBounds(100, 186, 115, 20);
+		panel.add(Fecha_nacimiento);
+		Fecha_nacimiento.setDateFormatString("yyyy-MM-dd");
 		
 		Panel panel_1 = new Panel();
 		panel_1.setLayout(null);
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(282, 99, 199, 198);
+		panel_1.setBounds(288, 109, 199, 198);
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Identificador");
@@ -289,15 +284,7 @@ public class Registro extends JFrame {
 		especie_texto = new JTextField();
 		//ESCRITURA SOLO TEXTO
 				especie_texto.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(KeyEvent e) {
-						
-						
-						char c =e.getKeyChar();
-						
-						if ((c<'a' || c>'z')) e.consume();
-						
-					}
+					
 				});
 		especie_texto.setColumns(10);
 		especie_texto.setBounds(90, 33, 99, 20);
@@ -333,15 +320,8 @@ public class Registro extends JFrame {
 		nombremascota__texto = new JTextField();
 		//ESCRITURA SOLO TEXTO
 				nombremascota__texto.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(KeyEvent e) {
-						
-						
-						char c =e.getKeyChar();
-						
-						if ((c<'a' || c>'z')) e.consume();
-						
-					}
+					
+					
 				});
 		nombremascota__texto.setColumns(10);
 		nombremascota__texto.setBounds(90, 83, 99, 20);
@@ -376,22 +356,37 @@ public class Registro extends JFrame {
 		peso_texto.setBounds(90, 133, 99, 20);
 		panel_1.add(peso_texto);
 		
-		JDateChooser Fecha_nacimiento = new JDateChooser();
-		Fecha_nacimiento.setDateFormatString("yyyy-MM-dd");
-		Fecha_nacimiento.setBounds(90, 107, 99, 20);
-		panel_1.add(Fecha_nacimiento);
-		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Vacuna Rabia");
+		chckbxNewCheckBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxNewCheckBox_1.isSelected()) {
+					
+					
+					textField_1.setText("1");
+					
+					
+				}
+				
+				else {
+					textField_1.setText("0");
+				}
+			}
+		});
 		chckbxNewCheckBox_1.setBounds(25, 168, 152, 23);
 		panel_1.add(chckbxNewCheckBox_1);
 		
+		JDateChooser fecha_nacimiento_A = new JDateChooser();
+		fecha_nacimiento_A.setDateFormatString("yyyy-MM-dd");
+		fecha_nacimiento_A.setBounds(90, 107, 99, 20);
+		panel_1.add(fecha_nacimiento_A);
+		
 		JLabel lblNewLabel_7 = new JLabel("Datos cliente");
 		lblNewLabel_7.setFont(new Font("Carlito", Font.BOLD, 16));
-		lblNewLabel_7.setBounds(93, 85, 98, 18);
+		lblNewLabel_7.setBounds(77, 85, 125, 18);
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Datos mascota");
-		lblNewLabel_7_1.setText(getName());
+		lblNewLabel_7_1.setText("Datos Animal");
 		lblNewLabel_7_1.setFont(new Font("Carlito", Font.BOLD, 16));
 		lblNewLabel_7_1.setBounds(330, 85, 106, 18);
 		contentPane.add(lblNewLabel_7_1);
@@ -426,9 +421,13 @@ public class Registro extends JFrame {
 							else {
 								String sentencia="INSERT INTO Cliente(idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro, NombreUsuario, Contrasena)  VALUES ('"+dni_texto.getText()+"','"+nombre_texto.getText()+"','"+apellidos_texto.getText()+"','"
 										+Fecha_nacimiento.getDate()+"','"+email_texto.getText()+"','"+telefono_texto.getText()+"','"+textField.getText()+"', '"+usuario_texto.getText()+"', '"+contrasena_texto.getText()+"')";
+								
+								String sentencia2="INSERT INTO Paciente (idPaciente, Nombre, Fecha_Nacimiento, Especie, Raza, Peso, Vacuna_rabia, Cliente_idCliente, Usuario_Paciente) VALUES ('"+identificador_texto.getText()+"', '"+nombremascota__texto.getText()+"', '"+fecha_nacimiento_A.getDate()+"', '"+especie_texto.getText()+"', '"+raza_texto.getText()+"', '"+peso_texto.getText()+"', '"
+										+textField_1.getText()+"','"+dni_texto.getText()+"','"+usuario_texto.getText()+"')";
 										
 										
 										conect.ejecutarInsertDeleteUpdate(sentencia);
+										conect.ejecutarInsertDeleteUpdate(sentencia2);
 							}
 							
 							
@@ -479,6 +478,8 @@ public class Registro extends JFrame {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				try {
+					
+					//Formatear fecha persona
 					String fecha=Fecha_nacimiento.getDate().toString();
 					String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
 					String formatoJava="dd/MM/yyyy";
@@ -490,12 +491,43 @@ public class Registro extends JFrame {
 						java.util.Date fecha1 = formato1.parse(fecha);
 						String fechaformateada = formato2.format(fecha1);
 						
-					Datos.nuevaFecha=fechaformateada;
-					Datos.nuevotelef=telefono_texto.getText();
-				Datos.nuevoDNI=dni_texto.getText();
-					Datos.nuevoEmail=email_texto.getText();
-					Datos.nuevonombre=nombre_texto.getText();
-					Datos.nuevoSeguro=textField.getText();
+						Datos.nuevaFecha=fechaformateada;
+						Datos.nuevotelef=telefono_texto.getText();
+					Datos.nuevoDNI=dni_texto.getText();
+						Datos.nuevoEmail=email_texto.getText();
+						Datos.nuevonombre=nombre_texto.getText();
+						
+						Datos.nuevoSeguro=textField.getText();
+						
+						//Formatear fecha animal
+						
+						String fecha2=fecha_nacimiento_A.getDate().toString();
+						String formatoSQL2 = "EEE MMM dd HH:mm:ss zzz yyyy";
+						String formatoJava2="dd/MM/yyyy";
+						
+						SimpleDateFormat formato1_2 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
+						SimpleDateFormat formato2_2 = new SimpleDateFormat(formatoJava);
+						
+						
+							java.util.Date fecha1_2 = formato1.parse(fecha);
+							String fechaformateada_2 = formato2.format(fecha1);
+						
+					
+					
+					Mascotas.nuevaFechaAnimal=fechaformateada_2;
+					Mascotas.nuevaraza=raza_texto.getText();
+					Mascotas.nuevoEspecie=especie_texto.getText();
+					Mascotas.nuevoidentificador=identificador_texto.getText();
+					Mascotas.nuevoPeso=peso_texto.getText();
+					
+					if(textField_1.getText() == "0"){
+						Mascotas.nuevoVacuna="Sin vacuna de la rabia";
+						
+					}
+					else {
+						Mascotas.nuevoVacuna="Vacunado de la rabia";
+						
+					}
 				
 				Datos a = new Datos();
 				
@@ -521,10 +553,17 @@ public class Registro extends JFrame {
 			public void componentHidden(ComponentEvent e) {
 			}
 		});
-		textField.setText("0");
-		textField.setBounds(202, 44, 86, 20);
+	
+		textField.setBounds(194, 43, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		
+		textField_1.setVisible(false);
+		textField_1.setBounds(330, 44, 86, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
 	}
 }
 

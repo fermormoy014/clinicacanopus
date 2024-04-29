@@ -62,15 +62,76 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel.setBounds(21, 11, 142, 53);
 		contentPane.add(lblNewLabel);
 		
+		//VER INFORMACION DE LAS MASCOTAS
+		
 		JButton btnNewButton = new JButton("Mis mascotas");
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		btnNewButton.setForeground(SystemColor.desktop);
 		btnNewButton.setBackground(SystemColor.inactiveCaption);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					
+					
+					conect.conectar();
+					
+					 String sentencia= "SELECT idPaciente, Nombre, Fecha_Nacimiento, Especie, Raza, Peso, Vacuna_rabia, Cliente_idCliente, Usuario_Paciente FROM Paciente  WHERE Usuario_Paciente = '"+Clinica.guardarUsuario+"'";
+					
+					ResultSet resultado = conect.ejecutarSelect(sentencia);
+					
+					while(resultado.next()) {
+						try {
+						String fecha=resultado.getString("Fecha_Nacimiento");
+						String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
+						String formatoJava="dd/MM/yyyy";
+						
+						SimpleDateFormat formato1 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
+						SimpleDateFormat formato2 = new SimpleDateFormat(formatoJava);
+						
+						
+							java.util.Date fecha1 = formato1.parse(fecha);
+							String fechaformateada = formato2.format(fecha1);
+							
+							Mascotas.nuevaFechaAnimal=fechaformateada;
+							Mascotas.nuevaraza=resultado.getString("Raza");
+							Mascotas.nuevoEspecie=resultado.getString("Especie");
+							Mascotas.nuevoidentificador=resultado.getString("idPaciente");
+							Mascotas.nuevoPeso=resultado.getString("Peso");
+							Mascotas.nuevoVacuna=resultado.getString("Vacuna_rabia");
+							Mascotas.nuevoNombreMascota=resultado.getString("Nombre");
+						
+						}
+						catch(Exception a){
+							
+						}
+						
+						
+						
+						
+					}
+					
+					
+					
+					
 				
+				Datos a;
 				Mascotas vMascotas = new Mascotas();
 				vMascotas.setVisible(true);
+				
+				
+				
+				
+				
+				
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				finally {
+					
+				}
+				
+				
 			}
 		});
 		btnNewButton.setBounds(21, 103, 122, 39);
@@ -108,8 +169,10 @@ public class Principal_cliente extends JFrame {
 								Datos.nuevotelef=resultado.getString("Telefono");
 							Datos.nuevoDNI=resultado.getString("idCliente");
 								Datos.nuevoEmail=resultado.getString("Email");
-								Datos.nuevonombre=resultado.getString("Nombre");
+								Datos.nuevonombre=resultado.getString("NombreUsuario");
+								Datos.nuevoNombre=resultado.getString("Nombre");
 								Datos.nuevoSeguro=resultado.getString("Seguro");
+								Datos.nuevoApellidos=resultado.getString("Apellidos");
 								
 								
 								

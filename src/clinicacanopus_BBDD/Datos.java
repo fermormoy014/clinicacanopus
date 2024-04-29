@@ -32,6 +32,8 @@ public class Datos extends JFrame  {
 	static String nuevoEmail;
 	static String nuevotelef;
 	static String nuevoSeguro;
+	static String nuevoNombre;
+	static String nuevoApellidos;
 
 	/**
 	 * Launch the application.
@@ -79,6 +81,8 @@ public class Datos extends JFrame  {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre y apellido");
+		
+		lblNewLabel_1.setText(nuevoNombre);
 		lblNewLabel_1.setForeground(new Color(255, 160, 122));
 		lblNewLabel_1.setBounds(21, 89, 142, 20);
 		contentPane.add(lblNewLabel_1);
@@ -144,16 +148,15 @@ public class Datos extends JFrame  {
 		panel.add(Telefono);
 		
 		JLabel Seguro = new JLabel("New label");
-		if(nuevoSeguro=="1") {
-			
-			nuevoSeguro="Tiene el seguro al dia";
-			
-		}
 		
-		else {
-			nuevoSeguro="No tiene seguro";
-		}
+		
 		Seguro.setText(nuevoSeguro);
+		
+		
+		
+	
+		
+		
 		Seguro.setBounds(60, 193, 160, 14);
 		panel.add(Seguro);
 		
@@ -181,6 +184,13 @@ public class Datos extends JFrame  {
 			lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\huella (1).png"));
 			lblNewLabel_9.setBounds(272, 89, 109, 106);
 			contentPane.add(lblNewLabel_9);
+			
+			JLabel lblNewLabel_1_1 = new JLabel((String) null);
+			lblNewLabel_1_1.setText(nuevoApellidos);
+			lblNewLabel_1_1.setForeground(new Color(255, 160, 122));
+			lblNewLabel_1_1.setFont(new Font("SansSerif", Font.BOLD, 14));
+			lblNewLabel_1_1.setBounds(173, 89, 142, 20);
+			contentPane.add(lblNewLabel_1_1);
 
 
 
