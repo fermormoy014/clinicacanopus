@@ -91,6 +91,30 @@ public class Mascotas extends JFrame {
 		lblNewLabel_7.setBounds(10, 101, 96, 14);
 		panel.add(lblNewLabel_7);
 		
+		JLabel Identificador_lbl = new JLabel("New label");
+		Identificador_lbl.setBounds(93, 12, 46, 14);
+		panel.add(Identificador_lbl);
+		
+		JLabel Especie_lbl = new JLabel("New label");
+		Especie_lbl.setBounds(64, 32, 46, 14);
+		panel.add(Especie_lbl);
+		
+		JLabel Raza_lbl = new JLabel("New label");
+		Raza_lbl.setBounds(46, 50, 46, 14);
+		panel.add(Raza_lbl);
+		
+		JLabel Peso_lbl = new JLabel("New label");
+		Peso_lbl.setBounds(43, 68, 46, 14);
+		panel.add(Peso_lbl);
+		
+		JLabel Fecha_lbl = new JLabel("New label");
+		Fecha_lbl.setBounds(116, 84, 46, 14);
+		panel.add(Fecha_lbl);
+		
+		JLabel Vacuna_lbl = new JLabel("New label");
+		Vacuna_lbl.setBounds(93, 102, 46, 14);
+		panel.add(Vacuna_lbl);
+		
 		JLabel lblNewLabel_1 = new JLabel("Perro 1");
 		lblNewLabel_1.setForeground(new Color(255, 160, 122));
 		lblNewLabel_1.setBounds(21, 89, 68, 20);
