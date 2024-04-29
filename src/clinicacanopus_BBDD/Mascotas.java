@@ -124,8 +124,13 @@ public class Mascotas extends JFrame {
 		panel.add(Fecha_lbl);
 		
 		JLabel Vacuna_lbl = new JLabel("New label");
-		
-		Vacuna_lbl.setText(nuevoVacuna);
+		if(nuevoVacuna.equals("0")) {
+			Vacuna_lbl.setText("esta vacunado");
+		}
+		else {
+			Vacuna_lbl.setText("no esta vacunado");
+		}
+
 		
 		Vacuna_lbl.setBounds(93, 102, 46, 14);
 		panel.add(Vacuna_lbl);

@@ -519,15 +519,8 @@ public class Registro extends JFrame {
 					Mascotas.nuevoEspecie=especie_texto.getText();
 					Mascotas.nuevoidentificador=identificador_texto.getText();
 					Mascotas.nuevoPeso=peso_texto.getText();
+					Mascotas.nuevoVacuna=textField_1.getText();
 					
-					if(textField_1.getText() == "0"){
-						Mascotas.nuevoVacuna="Sin vacuna de la rabia";
-						
-					}
-					else {
-						Mascotas.nuevoVacuna="Vacunado de la rabia";
-						
-					}
 				
 				Datos a = new Datos();
 				
@@ -547,7 +540,6 @@ public class Registro extends JFrame {
 		contentPane.add(btnVisualizarLosDatos);
 		
 		textField = new JTextField();
-		textField.setVisible(false);
 		textField.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentHidden(ComponentEvent e) {

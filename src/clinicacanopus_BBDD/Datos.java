@@ -150,15 +150,45 @@ public class Datos extends JFrame  {
 		JLabel Seguro = new JLabel("New label");
 		
 		
-		Seguro.setText(nuevoSeguro);
+		
+		
+		
+		if(nuevoSeguro.equals("0")) {
+			Seguro.setText("No tiene seguro");
+		}
+		
+		else if (nuevoSeguro.equals("1")){
+			Seguro.setText("tiene seguro");
+		}
+		else {
+			Seguro.setText("coña");
+		}
+		
+		
+		
+		/*while(nuevoSeguro == "0") {
+			Seguro.setText("No tiene seguro");
+			
+			
+			if(nuevoSeguro == "1") {
+				Seguro.setText("tiene seguro");
+				
+				
+			}
+			else {
+				break;
+			}
+		}*/
 		
 		
 		
 	
 		
 		
-		Seguro.setBounds(60, 193, 160, 14);
+		Seguro.setBounds(60, 192, 160, 14);
 		panel.add(Seguro);
+		
+		
 		
 		
 		

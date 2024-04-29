@@ -14,6 +14,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.JButton;
@@ -30,12 +31,15 @@ import javax.swing.JProgressBar;
 import javax.swing.JFormattedTextField;
 import javax.swing.JSlider;
 import java.awt.event.ItemListener;
+import java.sql.ResultSet;
 import java.awt.event.ItemEvent;
+import com.toedter.calendar.JDateChooser;
 
 public class Citas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
 	/**
 	 * Launch the application.
@@ -73,7 +77,7 @@ public class Citas extends JFrame {
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(245, 245, 245));
-		panel.setBounds(37, 91, 216, 160);
+		panel.setBounds(43, 91, 216, 160);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -96,13 +100,8 @@ public class Citas extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Ver disponibilidad");
 		lblNewLabel_4.setForeground(new Color(34, 139, 34));
 		lblNewLabel_4.setFont(new Font("SansSerif", Font.PLAIN, 10));
-		lblNewLabel_4.setBounds(78, 135, 95, 14);
+		lblNewLabel_4.setBounds(83, 110, 95, 14);
 		panel.add(lblNewLabel_4);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\calendario2 (1).png"));
-		btnNewButton_1.setBounds(181, 126, 26, 23);
-		panel.add(btnNewButton_1);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.addItemListener(new ItemListener() {
@@ -128,9 +127,39 @@ public class Citas extends JFrame {
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 13));
 		lblNewLabel_3.setBackground(SystemColor.inactiveCaption);
 		
-		JComboBox comboBox_1 = new JComboBox();
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(78, 129, 100, 20);
+		panel.add(dateChooser);
+		
+		
+		JComboBox comboBox_1 = new JComboBox(); 
 		comboBox_1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
+				
+				try {
+					String sentencia = "SELECT (Fecha_cita) FROM Cita ";
+					
+					ResultSet resultado = conect.ejecutarSelect(sentencia);
+					
+					while(resultado.next()) {
+						String fechatemp=resultado.getString("Fecha_cita");
+						
+						if(fechatemp == dateChooser.getDate().toString()) {
+							
+							JOptionPane.showMessageDialog(null, "citas completa, elija otro dia");
+							
+						}
+						
+						else {
+							String sentencia2 = "INSERT INTO Cita (Fecha_cita, Motivo, Hora) VALUES  ('"+dateChooser.getDate()+"','"+String.valueOf(comboBox.getSelectedItem())+"','"+String.valueOf(comboBox_1.getSelectedItem())+"')";
+							
+							ResultSet resultado2 = conect.ejecutarSelect(sentencia2);
+						}
+					}
+				}
+				catch(Exception e1) {
+					
+				}
 				
 
 			}
@@ -141,13 +170,23 @@ public class Citas extends JFrame {
 		panel.add(comboBox_1);
 		
 		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		btnNewButton_1.setBounds(188, 121, 26, 28);
+		panel.add(btnNewButton_1);
+		btnNewButton_1.setBackground(SystemColor.menu);
+		
+		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\calendario (1).png"));
-		lblNewLabel_1.setBounds(290, 98, 100, 103);
+		lblNewLabel_1.setBounds(312, 11, 100, 103);
 		contentPane.add(lblNewLabel_1);
 		
 		
 	}
-	
-
 }
