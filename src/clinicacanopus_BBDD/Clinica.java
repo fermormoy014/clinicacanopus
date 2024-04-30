@@ -115,7 +115,10 @@ public class Clinica extends JFrame {
 					
 					String sentencia="SELECT * FROM Cliente WHERE NombreUsuario= '"+Usuario_ingresar.getText()+"'AND Contrasena = '"+Contrasena_ingresar.getText()+"'  ";
 					
+					String sentencia2="SELECT * FROM Administrador WHERE NombreAdministrador= '"+Usuario_ingresar.getText()+"'AND Contrasena = '"+Contrasena_ingresar.getText()+"'  ";
+					
 					 ResultSet resultado = conect.ejecutarSelect(sentencia) ;
+					 ResultSet resultado2 = conect.ejecutarSelect(sentencia2) ;
 					 String usuarioCorrecto=null;
 					 String contrasenaCorrecta=null;
 					
@@ -124,6 +127,8 @@ public class Clinica extends JFrame {
 						
 						 usuarioCorrecto=resultado.getString(1);
 						 contrasenaCorrecta=resultado.getString(2);
+						 
+						 
 						JOptionPane.showMessageDialog(null, "Login correcto");
 						
 						
@@ -133,6 +138,18 @@ public class Clinica extends JFrame {
 						guardarUsuario=Usuario_ingresar.getText();
 						
 					}
+					else if (resultado2.next()) {
+						 usuarioCorrecto=resultado.getString(1);
+						 contrasenaCorrecta=resultado.getString(2);
+						JOptionPane.showMessageDialog(null, "Login correcto");
+						
+						Principal_administrador v1= new Principal_administrador();
+						v1.setVisible(true);
+						guardarUsuario=Usuario_ingresar.getText();
+						
+						
+					}
+						
 					
 					
 					else {

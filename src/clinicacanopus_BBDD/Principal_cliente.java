@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.awt.event.ActionEvent;
@@ -218,8 +219,15 @@ public class Principal_cliente extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Citas vCitas = new Citas();
-				vCitas.setVisible(true);
+				Citas vCitas;
+				try {
+					vCitas = new Citas();
+					vCitas.setVisible(true);
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		btnNewButton_2.setBounds(153, 103, 122, 39);
