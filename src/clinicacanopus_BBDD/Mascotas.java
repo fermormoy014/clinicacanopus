@@ -127,8 +127,11 @@ public class Mascotas extends JFrame {
 		if(nuevoVacuna.equals("0")) {
 			Vacuna_lbl.setText("esta vacunado");
 		}
-		else {
+		else if (nuevoVacuna.equals("1")){
 			Vacuna_lbl.setText("no esta vacunado");
+		}
+		else {
+			Vacuna_lbl.setText("coña");
 		}
 
 		
