@@ -139,8 +139,8 @@ public class Clinica extends JFrame {
 						
 					}
 					else if (resultado2.next()) {
-						 usuarioCorrecto=resultado.getString(1);
-						 contrasenaCorrecta=resultado.getString(2);
+						 usuarioCorrecto=resultado2.getString(1);
+						 contrasenaCorrecta=resultado2.getString(2);
 						JOptionPane.showMessageDialog(null, "Login correcto");
 						
 						Principal_administrador v1= new Principal_administrador();
