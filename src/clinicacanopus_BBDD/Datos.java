@@ -207,7 +207,7 @@ public class Datos extends JFrame  {
 			JLabel lblNewLabel_8 = new JLabel("¿Desea modificar la contraseña?");
 			lblNewLabel_8.setForeground(new Color(95, 158, 160));
 			lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 10));
-			lblNewLabel_8.setBounds(243, 206, 167, 14);
+			lblNewLabel_8.setBounds(381, 292, 167, 14);
 			contentPane.add(lblNewLabel_8);
 			
 			JLabel lblNewLabel_9 = new JLabel("New label");
