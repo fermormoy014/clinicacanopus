@@ -3,6 +3,7 @@ package clinicacanopus_BBDD;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Panel;
 
@@ -17,6 +18,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -39,12 +42,16 @@ import java.util.Locale;
 import java.awt.event.ItemEvent;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JEditorPane;
+import java.awt.Button;
 
 public class Citas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+	private Panel panel_1;
+	private Button atras;
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -67,46 +74,33 @@ public class Citas extends JFrame {
 	 * @throws ParseException 
 	 */
 	public Citas() throws ParseException {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//Obtiene el tamaño de la pantalla del dispositivo
+        
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 142, 53);
-		contentPane.add(lblNewLabel);
-		
 		Panel panel = new Panel();
-		panel.setBackground(new Color(245, 245, 245));
-		panel.setBounds(43, 54, 357, 197);
+		panel.setBackground(SystemColor.inactiveCaptionBorder);
+		panel.setBounds(10, 128, 633, 191);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Motivo");
 		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(10, 11, 52, 18);
+		lblNewLabel_2.setBounds(72, 29, 52, 18);
 		panel.add(lblNewLabel_2);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(SystemColor.menu);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setSelectedIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\4403531 (1).png"));
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\4403531 (1).png"));
-		btnNewButton.setBounds(169, 166, 26, 28);
-		panel.add(btnNewButton);
-		
-		JLabel lblNewLabel_4 = new JLabel("Ver disponibilidad");
-		lblNewLabel_4.setForeground(new Color(34, 139, 34));
-		lblNewLabel_4.setFont(new Font("SansSerif", Font.PLAIN, 10));
-		lblNewLabel_4.setBounds(218, 149, 95, 14);
+		JLabel lblNewLabel_4 = new JLabel("*Si hace clic en aceptar, se comprobará si está disponible. Si está disponible el sistema reservará su cita automáticamente.");
+		lblNewLabel_4.setForeground(Color.BLACK);
+		lblNewLabel_4.setFont(new Font("SansSerif", Font.PLAIN, 9));
+		lblNewLabel_4.setBounds(52, 165, 522, 14);
 		panel.add(lblNewLabel_4);
 		
 		JComboBox comboBox = new JComboBox();
@@ -123,19 +117,19 @@ public class Citas extends JFrame {
 		});
 		comboBox.setBackground(SystemColor.control);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Elegir una opción:", "Peluquería", "Revisión", "Vacunas", "Otros"}));
-		comboBox.setBounds(20, 40, 175, 18);
+		comboBox.setBounds(72, 58, 175, 20);
 		panel.add(comboBox);
 		
 		JLabel lblNewLabel_3 = new JLabel("Elegir mascota");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_3.setBounds(10, 69, 127, 18);
+		lblNewLabel_3.setBounds(72, 100, 127, 18);
 		panel.add(lblNewLabel_3);
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 13));
 		lblNewLabel_3.setBackground(SystemColor.inactiveCaption);
 		
 		JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setDateFormatString("dd/MM/yyyy");
-		dateChooser.setBounds(213, 174, 100, 20);
+		dateChooser.setBounds(319, 129, 100, 20);
 		panel.add(dateChooser);
 		
 		
@@ -154,16 +148,17 @@ public class Citas extends JFrame {
 		});
 		comboBox_1.setBackground(SystemColor.control);
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Elegir una opción:", "Perro", "Gato", "Otros"}));
-		comboBox_1.setBounds(20, 92, 175, 18);
+		comboBox_1.setBounds(72, 129, 175, 20);
 		panel.add(comboBox_1);
 		
 		JComboBox comboBox_hora = new JComboBox();
 		comboBox_hora.setModel(new DefaultComboBoxModel(new String[] {"9:00", "9:30", "10:00", "10:30", "11:00", "11:30"}));
-		comboBox_hora.setBounds(20, 133, 175, 22);
+		comboBox_hora.setBounds(319, 59, 175, 18);
 		panel.add(comboBox_hora);
 		
 		
-		JButton btnNewButton_1 = new JButton("");
+		JButton btnNewButton_1 = new JButton("Aceptar");
+		btnNewButton_1.setForeground(new Color(0, 128, 0));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -236,7 +231,7 @@ public class Citas extends JFrame {
 		});
 		
 		
-		btnNewButton_1.setBounds(321, 166, 26, 28);
+		btnNewButton_1.setBounds(462, 129, 134, 18);
 		panel.add(btnNewButton_1);
 		btnNewButton_1.setBackground(SystemColor.menu);
 		
@@ -246,14 +241,52 @@ public class Citas extends JFrame {
 		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_3_1.setFont(new Font("SansSerif", Font.BOLD, 13));
 		lblNewLabel_3_1.setBackground(SystemColor.inactiveCaption);
-		lblNewLabel_3_1.setBounds(10, 114, 127, 18);
+		lblNewLabel_3_1.setBounds(319, 29, 127, 18);
 		panel.add(lblNewLabel_3_1);
 		
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(233, 11, 80, 99);
+		JLabel lblNewLabel_1 = new JLabel("Elegir día ");
+		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(319, 102, 81, 15);
 		panel.add(lblNewLabel_1);
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\calendario (1).png"));
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setBounds(43, 11, 172, 80);
+		contentPane.add(lblNewLabel);
+		
+		panel_1 = new Panel();
+		panel_1.setForeground(new Color(255, 128, 64));
+		panel_1.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_1.setBounds(10, 97, 633, 25);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel_5 = new JLabel("Coger cita");
+		lblNewLabel_5.setForeground(new Color(255, 128, 64));
+		lblNewLabel_5.setBounds(30, 0, 84, 25);
+		panel_1.add(lblNewLabel_5);
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_5.setFont(new Font("SansSerif", Font.BOLD, 15));
+		
+		atras = new Button("Volver");
+		atras.setName("volver");
+		atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				Principal_cliente a = new Principal_cliente();
+				a.setVisible(true);
+				dispose();
+				
+				}
+				catch (Exception e3) {
+					e3.printStackTrace();
+	
+			}
+			}
+		});
+		atras.setBounds(556, 0, 77, 25);
+		panel_1.add(atras);
 		
 		
 	

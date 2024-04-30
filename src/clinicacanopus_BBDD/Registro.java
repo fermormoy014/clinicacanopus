@@ -1,6 +1,8 @@
 package clinicacanopus_BBDD;
 
+import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Panel;
 
@@ -13,8 +15,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JToggleButton;
+import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -50,6 +54,7 @@ public class Registro extends JFrame {
 	private JTextField textField;
 	static String fechaformateada;
 	private JTextField textField_1;
+	private Panel panelito;
 	/**
 	 * Launch the application.
 	 */
@@ -72,39 +77,41 @@ public class Registro extends JFrame {
 	 */
 	public Registro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 543, 391);
+		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//Obtiene el tamaño de la pantalla del dispositivo
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(26, 27, 142, 53);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setBounds(43, 11, 172, 80);		
 		contentPane.add(lblNewLabel);
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(10, 109, 225, 243);
+		panel.setBounds(23, 152, 289, 243);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
 		lblNewLabel_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_1.setBounds(10, 13, 46, 14);
+		lblNewLabel_1.setBounds(25, 10, 46, 14);
 		panel.add(lblNewLabel_1);
 		
 		usuario_texto = new JTextField();
 		
-		usuario_texto.setBounds(100, 8, 115, 20);
+		usuario_texto.setBounds(117, 8, 115, 20);
 		panel.add(usuario_texto);
 		usuario_texto.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nombre");
 		lblNewLabel_2.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_2.setBounds(10, 38, 46, 14);
+		lblNewLabel_2.setBounds(25, 35, 46, 14);
 		panel.add(lblNewLabel_2);
 		
 		nombre_texto = new JTextField();
@@ -113,13 +120,13 @@ public class Registro extends JFrame {
 		nombre_texto.addKeyListener(new KeyAdapter() {
 			
 		});
-		nombre_texto.setBounds(100, 33, 115, 20);
+		nombre_texto.setBounds(117, 33, 115, 20);
 		panel.add(nombre_texto);
 		nombre_texto.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Apellidos");
 		lblNewLabel_3.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_3.setBounds(10, 63, 61, 14);
+		lblNewLabel_3.setBounds(25, 60, 61, 14);
 		panel.add(lblNewLabel_3);
 		
 		apellidos_texto = new JTextField();
@@ -127,13 +134,13 @@ public class Registro extends JFrame {
 				apellidos_texto.addKeyListener(new KeyAdapter() {
 					
 				});
-		apellidos_texto.setBounds(100, 58, 115, 20);
+		apellidos_texto.setBounds(117, 58, 115, 20);
 		panel.add(apellidos_texto);
 		apellidos_texto.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("DNI");
 		lblNewLabel_4.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_4.setBounds(10, 88, 46, 14);
+		lblNewLabel_4.setBounds(25, 85, 46, 14);
 		panel.add(lblNewLabel_4);
 		
 		dni_texto = new JTextField();
@@ -163,18 +170,18 @@ public class Registro extends JFrame {
 				
 			}
 		});
-		dni_texto.setBounds(100, 83, 115, 20);
+		dni_texto.setBounds(117, 83, 115, 20);
 		panel.add(dni_texto);
 		dni_texto.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("T. Contacto");
 		lblNewLabel_5.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_5.setBounds(10, 113, 99, 14);
+		lblNewLabel_5.setBounds(25, 110, 99, 14);
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Email");
 		lblNewLabel_6.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_6.setBounds(10, 138, 46, 14);
+		lblNewLabel_6.setBounds(25, 135, 46, 14);
 		panel.add(lblNewLabel_6);
 		
 		telefono_texto = new JTextField();
@@ -197,26 +204,27 @@ public class Registro extends JFrame {
 					}
 				});
 				
-		telefono_texto.setBounds(100, 108, 115, 20);
+		telefono_texto.setBounds(117, 108, 115, 20);
 		panel.add(telefono_texto);
 		telefono_texto.setColumns(10);
 		
 		email_texto = new JTextField();
-		email_texto.setBounds(100, 133, 115, 20);
+		email_texto.setBounds(117, 135, 115, 20);
 		panel.add(email_texto);
 		email_texto.setColumns(10);
 		
 		JLabel lblNewLabel_6_3 = new JLabel("Contraseña");
 		lblNewLabel_6_3.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_6_3.setBounds(10, 163, 130, 19);
+		lblNewLabel_6_3.setBounds(25, 160, 71, 19);
 		panel.add(lblNewLabel_6_3);
 		
 		contrasena_texto = new JTextField();
-		contrasena_texto.setBounds(100, 160, 115, 19);
+		contrasena_texto.setBounds(117, 160, 115, 19);
 		panel.add(contrasena_texto);
 		contrasena_texto.setColumns(10);
 		
 		JCheckBox Seguro_box = new JCheckBox("Seguro Médico");
+		Seguro_box.setForeground(new Color(255, 128, 64));
 		Seguro_box.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -233,28 +241,28 @@ public class Registro extends JFrame {
 				}
 			}
 		});
-		Seguro_box.setBounds(22, 213, 158, 23);
+		Seguro_box.setBounds(22, 213, 99, 23);
 		panel.add(Seguro_box);
 		
-		JLabel lblNewLabel_5_1_1 = new JLabel("F. Nacimiento");
+		JLabel lblNewLabel_5_1_1 = new JLabel("Nacimiento");
 		lblNewLabel_5_1_1.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblNewLabel_5_1_1.setBounds(0, 190, 99, 14);
+		lblNewLabel_5_1_1.setBounds(25, 190, 71, 14);
 		panel.add(lblNewLabel_5_1_1);
 		
 		JDateChooser Fecha_nacimiento = new JDateChooser();
-		Fecha_nacimiento.setBounds(100, 186, 115, 20);
+		Fecha_nacimiento.setBounds(117, 186, 115, 20);
 		panel.add(Fecha_nacimiento);
 		Fecha_nacimiento.setDateFormatString("yyyy-MM-dd");
 		
 		Panel panel_1 = new Panel();
 		panel_1.setLayout(null);
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(288, 109, 199, 198);
+		panel_1.setBounds(364, 154, 266, 198);
 		contentPane.add(panel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Identificador");
 		lblNewLabel_1_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_1_1.setBounds(10, 13, 131, 14);
+		lblNewLabel_1_1.setBounds(27, 13, 131, 14);
 		panel_1.add(lblNewLabel_1_1);
 		
 		identificador_texto = new JTextField();
@@ -273,12 +281,12 @@ public class Registro extends JFrame {
 		});
 		
 		identificador_texto.setColumns(10);
-		identificador_texto.setBounds(90, 8, 99, 20);
+		identificador_texto.setBounds(127, 11, 99, 20);
 		panel_1.add(identificador_texto);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Especie");
 		lblNewLabel_2_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_2_1.setBounds(10, 38, 46, 14);
+		lblNewLabel_2_1.setBounds(27, 38, 80, 14);
 		panel_1.add(lblNewLabel_2_1);
 		
 		especie_texto = new JTextField();
@@ -287,12 +295,12 @@ public class Registro extends JFrame {
 					
 				});
 		especie_texto.setColumns(10);
-		especie_texto.setBounds(90, 33, 99, 20);
+		especie_texto.setBounds(127, 38, 99, 20);
 		panel_1.add(especie_texto);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Raza");
 		lblNewLabel_3_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_3_1.setBounds(10, 63, 46, 14);
+		lblNewLabel_3_1.setBounds(27, 63, 46, 14);
 		panel_1.add(lblNewLabel_3_1);
 		
 		raza_texto = new JTextField();
@@ -309,12 +317,12 @@ public class Registro extends JFrame {
 					}
 				});
 		raza_texto.setColumns(10);
-		raza_texto.setBounds(90, 58, 99, 20);
+		raza_texto.setBounds(127, 61, 99, 20);
 		panel_1.add(raza_texto);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Nombre");
 		lblNewLabel_4_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_4_1.setBounds(10, 88, 46, 14);
+		lblNewLabel_4_1.setBounds(27, 88, 46, 14);
 		panel_1.add(lblNewLabel_4_1);
 		
 		nombremascota__texto = new JTextField();
@@ -324,17 +332,17 @@ public class Registro extends JFrame {
 					
 				});
 		nombremascota__texto.setColumns(10);
-		nombremascota__texto.setBounds(90, 83, 99, 20);
+		nombremascota__texto.setBounds(127, 86, 99, 20);
 		panel_1.add(nombremascota__texto);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("F. Nacimiento");
 		lblNewLabel_5_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_5_1.setBounds(0, 113, 99, 14);
+		lblNewLabel_5_1.setBounds(27, 115, 99, 14);
 		panel_1.add(lblNewLabel_5_1);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("Peso");
 		lblNewLabel_6_1.setFont(new Font("Carlito", Font.PLAIN, 13));
-		lblNewLabel_6_1.setBounds(10, 138, 46, 14);
+		lblNewLabel_6_1.setBounds(27, 140, 46, 14);
 		panel_1.add(lblNewLabel_6_1);
 		
 		peso_texto = new JTextField();
@@ -353,10 +361,11 @@ public class Registro extends JFrame {
 			}
 		});
 		peso_texto.setColumns(10);
-		peso_texto.setBounds(90, 133, 99, 20);
+		peso_texto.setBounds(127, 138, 46, 20);
 		panel_1.add(peso_texto);
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Vacuna Rabia");
+		chckbxNewCheckBox_1.setForeground(new Color(255, 128, 64));
 		chckbxNewCheckBox_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckbxNewCheckBox_1.isSelected()) {
@@ -372,23 +381,23 @@ public class Registro extends JFrame {
 				}
 			}
 		});
-		chckbxNewCheckBox_1.setBounds(25, 168, 152, 23);
+		chckbxNewCheckBox_1.setBounds(27, 168, 99, 23);
 		panel_1.add(chckbxNewCheckBox_1);
 		
 		JDateChooser fecha_nacimiento_A = new JDateChooser();
 		fecha_nacimiento_A.setDateFormatString("yyyy-MM-dd");
-		fecha_nacimiento_A.setBounds(90, 107, 99, 20);
+		fecha_nacimiento_A.setBounds(127, 113, 99, 20);
 		panel_1.add(fecha_nacimiento_A);
 		
 		JLabel lblNewLabel_7 = new JLabel("Datos cliente");
-		lblNewLabel_7.setFont(new Font("Carlito", Font.BOLD, 16));
-		lblNewLabel_7.setBounds(77, 85, 125, 18);
+		lblNewLabel_7.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_7.setBounds(23, 128, 125, 18);
 		contentPane.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Datos mascota");
-		lblNewLabel_7_1.setText("Datos Animal");
-		lblNewLabel_7_1.setFont(new Font("Carlito", Font.BOLD, 16));
-		lblNewLabel_7_1.setBounds(330, 85, 106, 18);
+		lblNewLabel_7_1.setText("Datos paciente");
+		lblNewLabel_7_1.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_7_1.setBounds(416, 130, 106, 18);
 		contentPane.add(lblNewLabel_7_1);
 		
 		JButton btnGuardar = new JButton("Guardar datos");
@@ -470,7 +479,7 @@ public class Registro extends JFrame {
 		;
 
 
-		btnGuardar.setBounds(400, 318, 117, 23);
+		btnGuardar.setBounds(513, 372, 117, 23);
 		contentPane.add(btnGuardar);
 		
 		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
@@ -536,26 +545,47 @@ public class Registro extends JFrame {
 				
 			}
 		});
-		btnVisualizarLosDatos.setBounds(265, 318, 117, 23);
+		btnVisualizarLosDatos.setBounds(375, 372, 117, 23);
 		contentPane.add(btnVisualizarLosDatos);
 		
 		textField = new JTextField();
 		textField.addComponentListener(new ComponentAdapter() {
+			
+		});
+	
+		textField.setBounds(421, 43, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		textField.setVisible(false);
+
+		
+		textField_1 = new JTextField();
+		textField_1.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentHidden(ComponentEvent e) {
 			}
 		});
-	
-		textField.setBounds(194, 43, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
 		
 		textField_1.setVisible(false);
-		textField_1.setBounds(330, 44, 86, 20);
+		textField_1.setBounds(522, 43, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
+		panelito = new Panel();
+		panelito.setForeground(new Color(255, 128, 64));
+		panelito.setBackground(SystemColor.inactiveCaptionBorder);
+		panelito.setBounds(10, 97, 633, 25);
+		contentPane.add(panelito);
+		panelito.setLayout(null);
+		
+		JLabel lblNewLabel_8 = new JLabel("Nuevo registro");
+		lblNewLabel_8.setForeground(new Color(255, 128, 64));
+		lblNewLabel_8.setBounds(30, 0, 141, 25);
+		panelito.add(lblNewLabel_8);
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
+		
+		
 	}
 }
 

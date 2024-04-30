@@ -1,8 +1,11 @@
 package clinicacanopus_BBDD;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Panel;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -11,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -48,24 +53,41 @@ public class Modificar_contraseña extends JFrame {
 	 */
 	public Modificar_contraseña() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//Obtiene el tamaño de la pantalla del dispositivo
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 142, 53);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setBounds(43, 11, 172, 80);		
 		contentPane.add(lblNewLabel);
+		
+		Panel panelito = new Panel();
+		panelito.setForeground(new Color(255, 128, 64));
+		contentPane.add(panelito);
+		panelito.setBackground(SystemColor.inactiveCaptionBorder);
+		panelito.setBounds(10, 97, 633, 25);
+		contentPane.add(panelito);
+		panelito.setLayout(null);
+		
+		JLabel lblNewLabel_8 = new JLabel("Modificar contraseña");
+		lblNewLabel_8.setForeground(new Color(255, 128, 64));
+		lblNewLabel_8.setBounds(30, 0, 217, 25);
+		panelito.add(lblNewLabel_8);
+		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(245, 245, 245));
-		panel.setBounds(120, 46, 199, 205);
+		panel.setBounds(199, 157, 199, 205);
 		contentPane.add(panel);
 		panel.setLayout(null);
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
 		lblNewLabel_1.setFont(new Font("SansSerif", Font.PLAIN, 12));
