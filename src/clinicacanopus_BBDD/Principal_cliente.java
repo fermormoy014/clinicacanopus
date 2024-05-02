@@ -333,7 +333,7 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_4.setBackground(new Color(211, 211, 211));
 		lblNewLabel_4.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(145, 362, 358, 18);
+		lblNewLabel_4.setBounds(21, 362, 600, 33);
 		contentPane.add(lblNewLabel_4);
 		
 		

@@ -113,7 +113,7 @@ public class Mascotas extends JFrame {
 		JLabel Especie_lbl = new JLabel("New label");
 		Especie_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Especie_lbl.setText(nuevoEspecie);
-		Especie_lbl.setBounds(164, 48, 109, 14);
+		Especie_lbl.setBounds(164, 48, 109, 25);
 		panel.add(Especie_lbl);
 		
 		JLabel Raza_lbl = new JLabel("New label");
