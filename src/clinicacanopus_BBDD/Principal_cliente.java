@@ -256,9 +256,9 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
-		JButton atras = new JButton("Volver");
+		JButton atras = new JButton("Cerrar Sesion");
 		atras.setForeground(new Color(255, 128, 64));
-		atras.setBounds(557, 3, 89, 23);
+		atras.setBounds(497, 0, 136, 25);
 		panelito.add(atras);
 		
 		atras.setName("volver");
@@ -266,15 +266,15 @@ public class Principal_cliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-				Principal_cliente a = new Principal_cliente();
-				a.setVisible(true);
-				dispose();
-				
+					Clinica a = new Clinica();
+					a.setVisible(true);
+					dispose();
+					
+					}
+					catch (Exception e3) {
+						e3.printStackTrace();
+		
 				}
-				catch (Exception e3) {
-					e3.printStackTrace();
-	
-			}
 			}
 		});
 		atras.setBounds(556, 0, 77, 25);

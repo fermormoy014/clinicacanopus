@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Panel;
+import javax.swing.JToggleButton;
 
 public class Principal_administrador extends JFrame {
 	
@@ -147,8 +148,25 @@ public class Principal_administrador extends JFrame {
 		lblNewLabel_2.setBounds(141, 158, 132, 22);
 		contentPane.add(lblNewLabel_2);
 		
+		JButton btnNewButton_1 = new JButton("Cerrar Sesion");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Clinica a = new Clinica();
+					a.setVisible(true);
+					dispose();
+					
+					}
+					catch (Exception e3) {
+						e3.printStackTrace();
+		
+				}
+			}
+		});
+		btnNewButton_1.setBounds(529, 38, 117, 23);
+		contentPane.add(btnNewButton_1);
+		
 	
 		
 	}
-
 }

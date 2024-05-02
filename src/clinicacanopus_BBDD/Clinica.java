@@ -143,6 +143,8 @@ public class Clinica extends JFrame {
 						Principal_cliente v1= new Principal_cliente();
 						v1.setVisible(true);
 						guardarUsuario=Usuario_ingresar.getText();
+						dispose();
+						
 						
 					}
 					else if (resultado2.next()) {
@@ -153,6 +155,7 @@ public class Clinica extends JFrame {
 						Principal_administrador v1= new Principal_administrador();
 						v1.setVisible(true);
 						guardarUsuario=Usuario_ingresar.getText();
+						dispose();
 						
 						
 					}
