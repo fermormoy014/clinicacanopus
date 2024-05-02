@@ -306,7 +306,29 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_3.setBounds(241, 160, 132, 22);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("¿Has revisado cuando será su próxima vacuna?");
+		JLabel lblNewLabel_4 = new JLabel();
+		try {
+			conect.conectar();
+			String Sentencia = "SELECT Recomendacion FROM Recomendaciones";
+			
+			ResultSet resultado = conect.ejecutarSelect(Sentencia);
+			
+			while(resultado.next()) {
+				String recomendacion = resultado.getString("Recomendacion");
+				
+				
+				lblNewLabel_4.setText(recomendacion);
+				
+			}
+			
+			
+			
+		}
+		catch(Exception e) {
+			System.out.println(e);
+			
+		}
+		
 		lblNewLabel_4.setForeground(new Color(0, 128, 128));
 		lblNewLabel_4.setBackground(new Color(211, 211, 211));
 		lblNewLabel_4.setFont(new Font("SansSerif", Font.PLAIN, 13));

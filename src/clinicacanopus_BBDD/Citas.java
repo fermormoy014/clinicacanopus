@@ -204,8 +204,8 @@ public class Citas extends JFrame {
 								
 								
 							
-							String sentencia2 = "INSERT INTO Cita (Fecha_cita, Mascota, Motivo, Hora) VALUES  ('"+fechaformateada+"','"+String.valueOf(comboBox_1.getSelectedItem())+"','"
-									+String.valueOf(comboBox.getSelectedItem())+"', '"+String.valueOf(comboBox_hora.getSelectedItem())+"')";
+							String sentencia2 = "INSERT INTO Cita (Fecha_cita, Mascota, Motivo, Hora, NombreUsuario) VALUES  ('"+fechaformateada+"','"+String.valueOf(comboBox_1.getSelectedItem())+"','"
+									+String.valueOf(comboBox.getSelectedItem())+"', '"+String.valueOf(comboBox_hora.getSelectedItem())+"','"+Clinica.guardarUsuario+"')";
 												
 												conect.ejecutarInsertDeleteUpdate(sentencia2);
 												
@@ -301,10 +301,80 @@ public class Citas extends JFrame {
 		panel_2.add(lblNewLabel_6);
 		
 		JButton btnNewButton = new JButton("Cancelar cita");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres borrar la cita?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+					if(respuesta==JOptionPane.YES_OPTION) {
+						conect.conectar();
+						try {
+						String sentencia = "DELETE FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"'";
+						
+						conect.ejecutarInsertDeleteUpdate(sentencia);
+						
+						JOptionPane.showMessageDialog(null, "reserva de cita eliminada");
+						}
+						catch(Exception e2) {
+							System.out.println(e2);
+						}
+						
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "error al eliminar la cita");
+					}
+					
+				}
+				catch(Exception e1){
+					
+				}
+				
+			}
+		});
 		btnNewButton.setBackground(new Color(255, 204, 153));
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setBounds(514, 36, 112, 23);
 		panel_2.add(btnNewButton);
+		
+		JLabel Fecha_prox = new JLabel("New label");
+		try {
+			conect.conectar();
+			String sentencia = "SELECT Fecha_cita FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"' ";
+			
+			ResultSet resultado = conect.ejecutarSelect(sentencia);
+			
+			while(resultado.next()) {
+			
+			String fechacita = resultado.getString("Fecha_cita");
+			Fecha_prox.setText(fechacita);
+			}
+		}
+		catch (Exception e){
+			
+		}
+		
+		Fecha_prox.setBounds(42, 40, 100, 14);
+		panel_2.add(Fecha_prox);
+		
+		JLabel Hora_prox = new JLabel("New label");
+		try {
+			conect.conectar();
+			String sentencia = "SELECT Hora FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"' ";
+			
+			ResultSet resultado = conect.ejecutarSelect(sentencia);
+			
+			while(resultado.next()) {
+			
+			String hora = resultado.getString("Hora");
+			Hora_prox.setText(hora);
+			}
+		}
+		catch (Exception e){
+			
+		}
+		
+		
+		Hora_prox.setBounds(170, 40, 79, 14);
+		panel_2.add(Hora_prox);
 		
 		
 	

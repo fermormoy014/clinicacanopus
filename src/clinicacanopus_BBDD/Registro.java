@@ -595,7 +595,7 @@ public class Registro extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-				Principal_cliente a = new Principal_cliente();
+				Principal_administrador a = new Principal_administrador();
 				a.setVisible(true);
 				dispose();
 				

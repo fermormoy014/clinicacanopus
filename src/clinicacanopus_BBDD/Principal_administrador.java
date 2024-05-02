@@ -103,7 +103,7 @@ public class Principal_administrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					Registro a = new Registro();
+					recomendaciones a = new recomendaciones();
 					a.setVisible(true);
 					dispose();
 					
@@ -131,12 +131,12 @@ public class Principal_administrador extends JFrame {
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
-		JLabel lblNewLabel_1 = new JLabel("Modificar datos");
+		JLabel lblNewLabel_1 = new JLabel("Generar recomendación");
 		lblNewLabel_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBackground(new Color(95, 158, 160));
 		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(378, 158, 147, 22);
+		lblNewLabel_1.setBounds(365, 158, 172, 22);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Registrar cliente");
