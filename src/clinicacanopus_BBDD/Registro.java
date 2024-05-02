@@ -585,6 +585,34 @@ public class Registro extends JFrame {
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
+		JButton atras = new JButton("Volver");
+		atras.setBounds(534, 3, 89, 23);
+		panelito.add(atras);
+		
+	
+		atras.setName("volver");
+		atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				Principal_cliente a = new Principal_cliente();
+				a.setVisible(true);
+				dispose();
+				
+				}
+				catch (Exception e3) {
+					e3.printStackTrace();
+	
+			}
+			}
+		});
+		atras.setBounds(556, 0, 77, 25);
+		
+		
+		
+		
+		
+		
 		
 	}
 }

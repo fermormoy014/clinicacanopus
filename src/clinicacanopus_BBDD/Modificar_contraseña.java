@@ -71,7 +71,7 @@ public class Modificar_contraseña extends JFrame {
 		panelito.setForeground(new Color(255, 128, 64));
 		contentPane.add(panelito);
 		panelito.setBackground(SystemColor.inactiveCaptionBorder);
-		panelito.setBounds(10, 97, 633, 25);
+		panelito.setBounds(0, 97, 656, 25);
 		contentPane.add(panelito);
 		panelito.setLayout(null);
 		
@@ -82,33 +82,64 @@ public class Modificar_contraseña extends JFrame {
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
+		
+		JButton atras = new JButton("Volver");
+        atras.setForeground(new Color(255, 128, 64));
+        atras.setBounds(559, 3, 89, 23);
+        panelito.add(atras);
+		
+		atras.setName("volver");
+		atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				Principal_cliente a = new Principal_cliente();
+				a.setVisible(true);
+				dispose();
+				
+				}
+				catch (Exception e3) {
+					e3.printStackTrace();
+	
+			}
+			}
+		});
+		atras.setBounds(556, 0, 77, 25);
+		panelito.add(atras);
+		
+		
+		
+		
+		
+		
 		Panel panel = new Panel();
-		panel.setBackground(new Color(245, 245, 245));
-		panel.setBounds(199, 157, 199, 205);
-		contentPane.add(panel);
-		panel.setLayout(null);
+        panel.setBackground(new Color(255, 204, 153));
+        panel.setBounds(111, 153, 402, 187);
+        contentPane.add(panel);
+        panel.setLayout(null);
+        
+        JLabel lblNewLabel_1 = new JLabel("Introduzca usuario");
+        lblNewLabel_1.setFont(new Font("SansSerif", Font.PLAIN, 14));
+        lblNewLabel_1.setBounds(36, 30, 138, 14);
+        panel.add(lblNewLabel_1);
+        
+        txtUsuario = new JTextField();
+        txtUsuario.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        txtUsuario.setBounds(184, 28, 148, 20);
+        panel.add(txtUsuario);
+        txtUsuario.setColumns(10);
+        
+        JLabel lblNewLabel_2 = new JLabel("Contraseña actual");
+        lblNewLabel_2.setFont(new Font("SansSerif", Font.PLAIN, 14));
+        lblNewLabel_2.setBounds(36, 68, 117, 14);
+        panel.add(lblNewLabel_2);
+        
+        txtContrasena = new JPasswordField();
+        txtContrasena.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        txtContrasena.setBounds(184, 66, 148, 20);
+        panel.add(txtContrasena);
 		
-		
-		JLabel lblNewLabel_1 = new JLabel("Usuario");
-		lblNewLabel_1.setFont(new Font("SansSerif", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(10, 11, 99, 14);
-		panel.add(lblNewLabel_1);
-		
-		txtUsuario = new JTextField();
-		txtUsuario.setBounds(10, 32, 128, 20);
-		panel.add(txtUsuario);
-		txtUsuario.setColumns(10);
-		
-		JLabel lblNewLabel_2 = new JLabel("Contraseña actual");
-		lblNewLabel_2.setFont(new Font("SansSerif", Font.PLAIN, 12));
-		lblNewLabel_2.setBounds(10, 63, 117, 14);
-		panel.add(lblNewLabel_2);
-		
-		txtContrasena = new JPasswordField();
-		txtContrasena.setBounds(10, 88, 128, 20);
-		panel.add(txtContrasena);
-		
-		JButton btnNewButton = new JButton("Modificar");
+		JButton btnNewButton = new JButton("Modificar contraseña");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -155,17 +186,18 @@ public class Modificar_contraseña extends JFrame {
 				
 			}
 		});
-		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 10));
-		btnNewButton.setBounds(10, 171, 89, 23);
+		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		btnNewButton.setBounds(98, 153, 191, 23);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Nueva contraseña");
-		lblNewLabel_2_1.setFont(new Font("SansSerif", Font.PLAIN, 12));
-		lblNewLabel_2_1.setBounds(10, 122, 117, 14);
+		lblNewLabel_2_1.setFont(new Font("SansSerif", Font.PLAIN, 14));
+		lblNewLabel_2_1.setBounds(36, 105, 117, 14);
 		panel.add(lblNewLabel_2_1);
 		
 		txtNewContrasena = new JPasswordField();
-		txtNewContrasena.setBounds(10, 140, 128, 20);
+		txtNewContrasena.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		txtNewContrasena.setBounds(184, 103, 148, 20);
 		panel.add(txtNewContrasena);
 		
 		

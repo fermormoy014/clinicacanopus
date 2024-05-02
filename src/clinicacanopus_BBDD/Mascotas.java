@@ -1,8 +1,12 @@
 package clinicacanopus_BBDD;
 
+import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Panel;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -49,81 +54,88 @@ public class Mascotas extends JFrame {
 	 */
 	public Mascotas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//Obtiene el tamaño de la pantalla del dispositivo
+        
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Desktop\\PROGRAMACION USUARIO 1\\INTERFACES\\src\\PROYECTO\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 142, 53);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setBounds(21, 11, 161, 67);
 		contentPane.add(lblNewLabel);
 		
 		Panel panel = new Panel();
 		panel.setBackground(new Color(248, 248, 255));
-		panel.setBounds(21, 115, 220, 124);
+		panel.setBounds(168, 183, 294, 181);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Identificador:");
-		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(10, 11, 96, 14);
+		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(10, 23, 96, 14);
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Especie:");
-		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_3.setBounds(10, 31, 79, 14);
+		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_3.setBounds(10, 48, 57, 14);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Raza:");
-		lblNewLabel_4.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_4.setBounds(10, 49, 46, 14);
+		lblNewLabel_4.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_4.setBounds(10, 73, 46, 14);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Peso:");
-		lblNewLabel_5.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_5.setBounds(10, 67, 46, 14);
+		lblNewLabel_5.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_5.setBounds(10, 98, 46, 14);
 		panel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Fecha Nacimiento:");
-		lblNewLabel_6.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_6.setBounds(10, 83, 114, 14);
+		lblNewLabel_6.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_6.setBounds(10, 123, 128, 14);
 		panel.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Vacuna rabia:");
-		lblNewLabel_7.setFont(new Font("SansSerif", Font.BOLD, 11));
-		lblNewLabel_7.setBounds(10, 101, 96, 14);
+		lblNewLabel_7.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblNewLabel_7.setBounds(10, 148, 96, 14);
 		panel.add(lblNewLabel_7);
 		
 		JLabel Identificador_lbl = new JLabel("New label");
+		Identificador_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Identificador_lbl.setText(nuevoidentificador);
-		Identificador_lbl.setBounds(93, 12, 46, 14);
+		Identificador_lbl.setBounds(164, 23, 120, 14);
 		panel.add(Identificador_lbl);
 		
 		JLabel Especie_lbl = new JLabel("New label");
+		Especie_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Especie_lbl.setText(nuevoEspecie);
-		Especie_lbl.setBounds(64, 32, 46, 14);
+		Especie_lbl.setBounds(164, 48, 109, 14);
 		panel.add(Especie_lbl);
 		
 		JLabel Raza_lbl = new JLabel("New label");
+		Raza_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Raza_lbl.setText(nuevaraza);
-		Raza_lbl.setBounds(46, 50, 46, 14);
+		Raza_lbl.setBounds(164, 73, 120, 14);
 		panel.add(Raza_lbl);
 		
 		JLabel Peso_lbl = new JLabel("New label");
+		Peso_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Peso_lbl.setText(nuevoPeso);
-		Peso_lbl.setBounds(43, 68, 46, 14);
+		Peso_lbl.setBounds(164, 98, 96, 14);
 		panel.add(Peso_lbl);
 		
 		JLabel Fecha_lbl = new JLabel("New label");
+		Fecha_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		Fecha_lbl.setText(nuevaFechaAnimal);
-		Fecha_lbl.setBounds(116, 84, 46, 14);
+		Fecha_lbl.setBounds(164, 123, 96, 14);
 		panel.add(Fecha_lbl);
 		
 		JLabel Vacuna_lbl = new JLabel("New label");
+		Vacuna_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		if(nuevoVacuna.equals("1")) {
 			Vacuna_lbl.setText("esta vacunado");
 		}
@@ -132,14 +144,63 @@ public class Mascotas extends JFrame {
 		}
 
 		
-		Vacuna_lbl.setBounds(93, 102, 46, 14);
+		Vacuna_lbl.setBounds(164, 148, 120, 14);
 		panel.add(Vacuna_lbl);
 		
 		JLabel lblNewLabel_1 = new JLabel("Perro 1");
 		lblNewLabel_1.setText(nuevoNombreMascota);
 		lblNewLabel_1.setForeground(new Color(255, 160, 122));
-		lblNewLabel_1.setBounds(21, 89, 68, 20);
+		lblNewLabel_1.setBounds(168, 155, 191, 20);
 		contentPane.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Carlito", Font.BOLD, 15));
+		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 15));
+		
+		Panel panelito = new Panel();
+		panelito.setBounds(84, 89, 10, 10);
+		contentPane.add(panelito);
+	
+        panelito.setForeground(new Color(255, 128, 64));
+        panelito.setBackground(SystemColor.inactiveCaptionBorder);
+        panelito.setBounds(0, 97, 658, 25);
+        contentPane.add(panelito);
+        panelito.setLayout(null);
+
+        JLabel textoPanelito;
+        textoPanelito = new JLabel("Mis mascotas");
+        textoPanelito.setFont(new Font("SansSerif", Font.BOLD, 15));
+        textoPanelito.setForeground(new Color(255, 128, 64));
+        textoPanelito.setBounds(30, 0, 254, 25);
+        panelito.add(textoPanelito);
+        textoPanelito.setHorizontalAlignment(SwingConstants.LEFT);
+        
+        JButton atras = new JButton("Volver");
+        atras.setForeground(new Color(255, 128, 64));
+        atras.setBounds(559, 3, 89, 23);
+        panelito.add(atras);
+		
+		atras.setName("volver");
+		atras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				Principal_cliente a = new Principal_cliente();
+				a.setVisible(true);
+				dispose();
+				
+				}
+				catch (Exception e3) {
+					e3.printStackTrace();
+	
+			}
+			}
+		});
+		atras.setBounds(556, 0, 77, 25);
+		panelito.add(atras);
+		
+		JLabel lblNewLabel_8 = new JLabel("");
+		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\mascotas11.png"));
+		lblNewLabel_8.setBounds(10, 122, 648, 284);
+		contentPane.add(lblNewLabel_8);
+		
+		
 	}
 }

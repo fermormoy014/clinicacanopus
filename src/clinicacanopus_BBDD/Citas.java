@@ -288,6 +288,24 @@ public class Citas extends JFrame {
 		atras.setBounds(556, 0, 77, 25);
 		panel_1.add(atras);
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(SystemColor.inactiveCaptionBorder);
+		panel_2.setBounds(10, 325, 636, 70);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblNewLabel_6 = new JLabel("Próximas citas");
+		lblNewLabel_6.setForeground(Color.BLACK);
+		lblNewLabel_6.setBounds(10, 11, 112, 18);
+		lblNewLabel_6.setFont(new Font("SansSerif", Font.BOLD, 13));
+		panel_2.add(lblNewLabel_6);
+		
+		JButton btnNewButton = new JButton("Cancelar cita");
+		btnNewButton.setBackground(new Color(255, 204, 153));
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBounds(514, 36, 112, 23);
+		panel_2.add(btnNewButton);
+		
 		
 	
 	

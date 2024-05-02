@@ -68,10 +68,11 @@ public class Principal_administrador extends JFrame {
 		
 		
 		
-		JButton btnNewButton = new JButton("Registrar cliente");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\3534139.png"));
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		btnNewButton.setForeground(SystemColor.desktop);
-		btnNewButton.setBackground(SystemColor.inactiveCaption);
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -87,16 +88,17 @@ public class Principal_administrador extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(379, 190, 156, 39);
+		btnNewButton.setBounds(129, 203, 147, 147);
 		contentPane.add(btnNewButton);
 
 		
 		
 		
 		
-		JButton btnNewButton_2 = new JButton("Modificar datos");
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\personales1.png"));
 		btnNewButton_2.setFont(new Font("SansSerif", Font.PLAIN, 13));
-		btnNewButton_2.setBackground(SystemColor.inactiveCaption);
+		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -112,13 +114,13 @@ public class Principal_administrador extends JFrame {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(118, 190, 156, 39);
+		btnNewButton_2.setBounds(378, 203, 147, 147);
 		contentPane.add(btnNewButton_2);
 		
 		Panel panelito = new Panel();
 		panelito.setForeground(new Color(255, 128, 64));
 		panelito.setBackground(SystemColor.inactiveCaptionBorder);
-		panelito.setBounds(10, 97, 633, 25);
+		panelito.setBounds(0, 97, 656, 25);
 		contentPane.add(panelito);
 		panelito.setLayout(null);
 		
@@ -128,6 +130,22 @@ public class Principal_administrador extends JFrame {
 		panelito.add(lblNewLabel_8);
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
+		
+		JLabel lblNewLabel_1 = new JLabel("Modificar datos");
+		lblNewLabel_1.setForeground(new Color(0, 128, 128));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBackground(new Color(95, 158, 160));
+		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(378, 158, 147, 22);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Registrar cliente");
+		lblNewLabel_2.setForeground(new Color(0, 128, 128));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBackground(new Color(95, 158, 160));
+		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(141, 158, 132, 22);
+		contentPane.add(lblNewLabel_2);
 		
 	
 		
