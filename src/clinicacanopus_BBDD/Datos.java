@@ -63,7 +63,7 @@ public class Datos extends JFrame  {
 	 * @throws SQLException 
 	 */
 	public Datos() throws SQLException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Datos.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -80,7 +80,7 @@ public class Datos extends JFrame  {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Datos.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(34, 25, 142, 53);
 	
 		contentPane.add(lblNewLabel);
@@ -276,7 +276,7 @@ public class Datos extends JFrame  {
             contentPane.add(btnNewButton);
             
             lblNewLabel_8 = new JLabel("");
-            lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\gatito22.png"));
+            lblNewLabel_8.setIcon(new ImageIcon(Datos.class.getResource("/clinicacanopus_BBDD/gatito22.png")));
             lblNewLabel_8.setBounds(355, 115, 279, 269);
             contentPane.add(lblNewLabel_8);
 

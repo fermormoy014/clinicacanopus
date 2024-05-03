@@ -51,7 +51,7 @@ public class Principal_administrador extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal_administrador() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal_administrador.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +67,7 @@ public class Principal_administrador extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Principal_administrador.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(21, 11, 176, 80);
 		contentPane.add(lblNewLabel);
 		
@@ -75,7 +75,7 @@ public class Principal_administrador extends JFrame {
 		//BOTÓN PARA REGISTRAR NUEVOS USUARIOS
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorderPainted(false);
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\3534139.png"));
+		btnNewButton.setIcon(new ImageIcon(Principal_administrador.class.getResource("/clinicacanopus_BBDD/3534139.png")));
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		btnNewButton.setForeground(SystemColor.desktop);
 		btnNewButton.setBackground(Color.WHITE);
@@ -105,7 +105,7 @@ public class Principal_administrador extends JFrame {
 		JButton btnNewButton_2 = new JButton("");
 		btnNewButton_2.setBorderPainted(false);
 		btnNewButton_2.setForeground(Color.WHITE);
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\recomen17.png"));
+		btnNewButton_2.setIcon(new ImageIcon(Principal_administrador.class.getResource("/clinicacanopus_BBDD/recomen17.png")));
 		btnNewButton_2.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		btnNewButton_2.setBackground(new Color(255, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {

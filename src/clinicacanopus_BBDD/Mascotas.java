@@ -54,7 +54,7 @@ public class Mascotas extends JFrame {
 	 * Create the frame.
 	 */
 	public Mascotas() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Mascotas.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -68,7 +68,7 @@ public class Mascotas extends JFrame {
 		
 		//CONTENIDO DEL FRAME
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Mascotas.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(21, 11, 183, 80);
 		contentPane.add(lblNewLabel);
 		
@@ -208,7 +208,7 @@ public class Mascotas extends JFrame {
 		panelito.add(atras);
 		
 		JLabel lblNewLabel_8 = new JLabel("");
-		lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\mascotas11.png"));
+		lblNewLabel_8.setIcon(new ImageIcon(Mascotas.class.getResource("/clinicacanopus_BBDD/mascotas11.png")));
 		lblNewLabel_8.setBounds(10, 122, 648, 284);
 		contentPane.add(lblNewLabel_8);
 		

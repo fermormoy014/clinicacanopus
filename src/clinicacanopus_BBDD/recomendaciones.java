@@ -48,7 +48,7 @@ public class recomendaciones extends JFrame {
 	 * Create the frame.
 	 */
 	public recomendaciones() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(recomendaciones.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -62,7 +62,7 @@ public class recomendaciones extends JFrame {
 		//CONTENIDO DEL FRAME
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(recomendaciones.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		
 		lblNewLabel.setBounds(43, 11, 172, 80);		
 		contentPane.add(lblNewLabel);

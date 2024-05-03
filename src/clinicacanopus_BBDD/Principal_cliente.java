@@ -53,7 +53,7 @@ public class Principal_cliente extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal_cliente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal_cliente.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -68,14 +68,14 @@ public class Principal_cliente extends JFrame {
 		//CONTENIDO DEL FRAME
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Principal_cliente.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(21, 11, 170, 81);
 		contentPane.add(lblNewLabel);
 		
 		//VER INFORMACION DE LAS MASCOTAS
 		
 		JButton btnNewButton = new JButton("Mis mascotas");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\images.png"));
+		btnNewButton.setIcon(new ImageIcon(Principal_cliente.class.getResource("/clinicacanopus_BBDD/images.png")));
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		btnNewButton.setForeground(SystemColor.desktop);
 		btnNewButton.setBackground(SystemColor.inactiveCaption);
@@ -153,7 +153,7 @@ public class Principal_cliente extends JFrame {
 		
 		//BOTÓN PARA ABRIR LA VENTANA DE LOS DATOS
 		JButton btnNewButton_1 = new JButton("Datos personales");
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\images.jpg"));
+		btnNewButton_1.setIcon(new ImageIcon(Principal_cliente.class.getResource("/clinicacanopus_BBDD/images.jpg")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -218,7 +218,7 @@ public class Principal_cliente extends JFrame {
 		//BOTON PARA COGER CITAS
 		
 		JButton btnNewButton_2 = new JButton("Coger cita");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\radiologia.jpg"));
+		btnNewButton_2.setIcon(new ImageIcon(Principal_cliente.class.getResource("/clinicacanopus_BBDD/radiologia.jpg")));
 		btnNewButton_2.setFont(new Font("SansSerif", Font.PLAIN, 12));
 		btnNewButton_2.setBackground(SystemColor.inactiveCaption);
 		btnNewButton_2.addActionListener(new ActionListener() {

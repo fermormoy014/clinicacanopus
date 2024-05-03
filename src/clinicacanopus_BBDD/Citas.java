@@ -76,7 +76,7 @@ public class Citas extends JFrame {
 	 * @throws ParseException 
 	 */
 	public Citas() throws ParseException {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Citas.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		
 		//CONTENIDO DEL FRAME
 		
@@ -258,7 +258,7 @@ public class Citas extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Citas.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(43, 11, 172, 80);
 		contentPane.add(lblNewLabel);
 		

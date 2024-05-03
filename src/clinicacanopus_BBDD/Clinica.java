@@ -62,7 +62,7 @@ public class Clinica extends JFrame {
 	 * Create the frame.
 	 */
 	public Clinica() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Clinica.class.getResource("/clinicacanopus_BBDD/icono3.png")));
 		setResizable(false);
 		
 		//CONTENIDO DE LA VENTANA
@@ -78,7 +78,7 @@ public class Clinica extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		lblNewLabel.setIcon(new ImageIcon(Clinica.class.getResource("/clinicacanopus_BBDD/Logo_clinica.png")));
 		lblNewLabel.setBounds(203, 11, 248, 125);
 		contentPane.add(lblNewLabel);
 		
@@ -195,12 +195,12 @@ public class Clinica extends JFrame {
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\gato.png"));
+		lblNewLabel_4.setIcon(new ImageIcon(Clinica.class.getResource("/clinicacanopus_BBDD/gato.png")));
 		lblNewLabel_4.setBounds(0, 0, 193, 406);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\perro.png"));
+		lblNewLabel_5.setIcon(new ImageIcon(Clinica.class.getResource("/clinicacanopus_BBDD/perro.png")));
 		lblNewLabel_5.setBounds(439, 0, 217, 406);
 		contentPane.add(lblNewLabel_5);
 		
