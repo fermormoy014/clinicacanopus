@@ -76,6 +76,7 @@ public class Registro extends JFrame {
 	 * Create the frame.
 	 */
 	public Registro() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -89,7 +90,7 @@ public class Registro extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
-		lblNewLabel.setBounds(43, 11, 172, 80);		
+		lblNewLabel.setBounds(23, 11, 172, 80);		
 		contentPane.add(lblNewLabel);
 		
 		Panel panel = new Panel();
@@ -469,7 +470,7 @@ public class Registro extends JFrame {
 					
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Algún campo está vacio, intentelo de nuevo");
+					JOptionPane.showMessageDialog(null, "Algún campo está vacio, inténtelo de nuevo");
 				}
 				
 				
@@ -486,72 +487,6 @@ public class Registro extends JFrame {
 
 		btnGuardar.setBounds(513, 372, 117, 23);
 		contentPane.add(btnGuardar);
-		
-		JButton btnVisualizarLosDatos = new JButton("Visualizar los datos");
-		btnVisualizarLosDatos.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
-			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					//Formatear fecha persona
-					String fecha=Fecha_nacimiento.getDate().toString();
-					String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
-					String formatoJava="dd/MM/yyyy";
-					
-					SimpleDateFormat formato1 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
-					SimpleDateFormat formato2 = new SimpleDateFormat(formatoJava);
-					
-					
-						java.util.Date fecha1 = formato1.parse(fecha);
-						String fechaformateada = formato2.format(fecha1);
-						
-						Datos.nuevaFecha=fechaformateada;
-						Datos.nuevotelef=telefono_texto.getText();
-					Datos.nuevoDNI=dni_texto.getText();
-						Datos.nuevoEmail=email_texto.getText();
-						Datos.nuevonombre=nombre_texto.getText();
-						
-						Datos.nuevoSeguro=textField.getText();
-						
-						//Formatear fecha animal
-						
-						String fecha2=fecha_nacimiento_A.getDate().toString();
-						String formatoSQL2 = "EEE MMM dd HH:mm:ss zzz yyyy";
-						String formatoJava2="dd/MM/yyyy";
-						
-						SimpleDateFormat formato1_2 = new SimpleDateFormat(formatoSQL, Locale.ENGLISH);
-						SimpleDateFormat formato2_2 = new SimpleDateFormat(formatoJava);
-						
-						
-							java.util.Date fecha1_2 = formato1.parse(fecha);
-							String fechaformateada_2 = formato2.format(fecha1);
-						
-					
-					
-					Mascotas.nuevaFechaAnimal=fechaformateada_2;
-					Mascotas.nuevaraza=raza_texto.getText();
-					Mascotas.nuevoEspecie=especie_texto.getText();
-					Mascotas.nuevoidentificador=identificador_texto.getText();
-					Mascotas.nuevoPeso=peso_texto.getText();
-					Mascotas.nuevoVacuna=textField_1.getText();
-					
-				
-				Datos a = new Datos();
-				
-				
-				
-				
-				a.setVisible(true);
-				
-				}
-				catch (Exception e3) {
-					e3.printStackTrace();
-				}
-				
-			}
-		});
-		btnVisualizarLosDatos.setBounds(375, 372, 117, 23);
-		contentPane.add(btnVisualizarLosDatos);
 		
 		textField = new JTextField();
 		textField.addComponentListener(new ComponentAdapter() {
@@ -591,6 +526,7 @@ public class Registro extends JFrame {
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
 		JButton atras = new JButton("Volver");
+		atras.setForeground(new Color(255, 128, 64));
 		atras.setBounds(534, 3, 89, 23);
 		panelito.add(atras);
 		

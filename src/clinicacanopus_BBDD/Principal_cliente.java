@@ -53,6 +53,7 @@ public class Principal_cliente extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal_cliente() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -129,6 +130,7 @@ public class Principal_cliente extends JFrame {
 				//ABRIR VENTANA MASCOTAS
 				Mascotas vMascotas = new Mascotas();
 				vMascotas.setVisible(true);
+				dispose();
 				
 				
 				
@@ -146,7 +148,7 @@ public class Principal_cliente extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(241, 196, 132, 118);
+		btnNewButton.setBounds(251, 196, 132, 118);
 		contentPane.add(btnNewButton);
 		
 		//BOTÓN PARA ABRIR LA VENTANA DE LOS DATOS
@@ -193,38 +195,24 @@ public class Principal_cliente extends JFrame {
 								Datos.nuevoSeguro=resultado.getString("Seguro");
 								Datos.nuevoApellidos=resultado.getString("Apellidos");
 								
-								
-								
-								
-								
-								
+				
 							}
-							
-							
-							
-							
+				
 						//ABRIR LA VENTANA DE DATOS
 						Datos a = new Datos();
 						a.setVisible(true);
+						dispose();
 						
 						}
 						catch (Exception e3) {
 							e3.printStackTrace();
 						}
-						
-					
-						
-					 
-					
-					
-					
-
-				
+		
 			}
 		});
 		btnNewButton_1.setFont(new Font("SansSerif", Font.PLAIN, 11));
 		btnNewButton_1.setBackground(SystemColor.inactiveCaption);
-		btnNewButton_1.setBounds(457, 196, 141, 118);
+		btnNewButton_1.setBounds(457, 196, 131, 118);
 		contentPane.add(btnNewButton_1);
 		
 		//BOTON PARA COGER CITAS
@@ -241,6 +229,7 @@ public class Principal_cliente extends JFrame {
 					//ABRIR LA VENTANA DE CITAS
 					vCitas = new Citas();
 					vCitas.setVisible(true);
+					dispose();
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -267,9 +256,9 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_8.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_8.setFont(new Font("SansSerif", Font.BOLD, 15));
 		
-		JButton atras = new JButton("Cerrar Sesion");
+		JButton atras = new JButton("Cerrar");
 		atras.setForeground(new Color(255, 128, 64));
-		atras.setBounds(497, 0, 136, 25);
+		atras.setBounds(518, 0, 115, 25);
 		panelito.add(atras);
 		
 		atras.setName("volver");
@@ -298,7 +287,7 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBackground(new Color(95, 158, 160));
 		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(57, 160, 111, 22);
+		lblNewLabel_1.setBounds(45, 160, 153, 22);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Datos personales");
@@ -316,7 +305,7 @@ public class Principal_cliente extends JFrame {
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setBackground(new Color(95, 158, 160));
 		lblNewLabel_3.setFont(new Font("SansSerif", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(241, 160, 132, 22);
+		lblNewLabel_3.setBounds(251, 160, 132, 22);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel();

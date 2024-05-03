@@ -40,6 +40,7 @@ public class Datos extends JFrame  {
 	static String nuevoSeguro;
 	static String nuevoNombre;
 	static String nuevoApellidos;
+	private JLabel lblNewLabel_8;
 
 	/**
 	 * Launch the application.
@@ -62,6 +63,7 @@ public class Datos extends JFrame  {
 	 * @throws SQLException 
 	 */
 	public Datos() throws SQLException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -218,7 +220,7 @@ public class Datos extends JFrame  {
             panelito.setLayout(null);
 
             JLabel textoPanelito;
-            textoPanelito = new JLabel("Modificar contraseña");
+            textoPanelito = new JLabel("Datos personales");
             textoPanelito.setForeground(new Color(255, 128, 64));
             textoPanelito.setBounds(30, 0, 254, 25);
             panelito.add(textoPanelito);
@@ -270,13 +272,13 @@ public class Datos extends JFrame  {
             });
             btnNewButton.setBackground(new Color(255, 204, 153));
             btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 12));
-            btnNewButton.setBounds(392, 337, 227, 21);
+            btnNewButton.setBounds(389, 363, 227, 21);
             contentPane.add(btnNewButton);
             
-            JLabel lblNewLabel_9 = new JLabel("");
-            lblNewLabel_9.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\phuella.png"));
-            lblNewLabel_9.setBounds(349, 162, 309, 239);
-            contentPane.add(lblNewLabel_9);
+            lblNewLabel_8 = new JLabel("");
+            lblNewLabel_8.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\gatito22.png"));
+            lblNewLabel_8.setBounds(355, 115, 279, 269);
+            contentPane.add(lblNewLabel_8);
 
 
 

@@ -76,7 +76,7 @@ public class Citas extends JFrame {
 	 * @throws ParseException 
 	 */
 	public Citas() throws ParseException {
-		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		
 		//CONTENIDO DEL FRAME
 		
@@ -351,7 +351,7 @@ public class Citas extends JFrame {
 		
 		JLabel Fecha_prox = new JLabel();
 		try {
-			//MOSTRAMOS LA FECHA DE LA PRÓXIMA CITA
+			//MOSTRAMOS LA HORA DE LA PRÓXIMA CITA
 			conect.conectar();
 			String sentencia = "SELECT Fecha_cita FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"' ";
 			

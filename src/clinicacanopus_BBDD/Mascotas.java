@@ -54,6 +54,7 @@ public class Mascotas extends JFrame {
 	 * Create the frame.
 	 */
 	public Mascotas() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -66,9 +67,9 @@ public class Mascotas extends JFrame {
 		contentPane.setLayout(null);
 		
 		//CONTENIDO DEL FRAME
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
-		lblNewLabel.setBounds(21, 11, 161, 67);
+		lblNewLabel.setBounds(21, 11, 183, 80);
 		contentPane.add(lblNewLabel);
 		
 		Panel panel = new Panel();
@@ -118,7 +119,7 @@ public class Mascotas extends JFrame {
 		Especie_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
 		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Especie_lbl.setText(nuevoEspecie);
-		Especie_lbl.setBounds(164, 48, 109, 25);
+		Especie_lbl.setBounds(164, 48, 109, 24);
 		panel.add(Especie_lbl);
 		
 		JLabel Raza_lbl = new JLabel("New label");

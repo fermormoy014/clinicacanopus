@@ -26,12 +26,12 @@ import java.awt.event.ActionEvent;
 public class Modificar_contraseña extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JPasswordField txtNewContrasena;
 	//CONEXIÓN A LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -53,6 +53,7 @@ public class Modificar_contraseña extends JFrame {
 	 * Create the frame.
 	 */
 	public Modificar_contraseña() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -67,7 +68,7 @@ public class Modificar_contraseña extends JFrame {
 		//CONTENIDO DEL FRAME
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
-		lblNewLabel.setBounds(43, 11, 172, 80);		
+		lblNewLabel.setBounds(25, 11, 172, 80);		
 		contentPane.add(lblNewLabel);
 		
 		Panel panelito = new Panel();
@@ -144,6 +145,7 @@ public class Modificar_contraseña extends JFrame {
         panel.add(txtContrasena);
 		
 		JButton btnNewButton = new JButton("Modificar contraseña");
+		btnNewButton.setBackground(new Color(255, 250, 240));
 		//BOTÓN PARA MODIFICAR LA CONTRASEÑA
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

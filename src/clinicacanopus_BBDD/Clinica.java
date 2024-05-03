@@ -62,6 +62,7 @@ public class Clinica extends JFrame {
 	 * Create the frame.
 	 */
 	public Clinica() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\icono3.png"));
 		setResizable(false);
 		
 		//CONTENIDO DE LA VENTANA
