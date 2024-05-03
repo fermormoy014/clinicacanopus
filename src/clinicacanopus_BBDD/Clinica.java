@@ -36,6 +36,8 @@ public class Clinica extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPasswordField Contrasena_ingresar;
+	
+	//CONEXION CON LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 	static String guardarUsuario;
 
@@ -46,6 +48,7 @@ public class Clinica extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					//ABRIR LA VENTANA 
 					Clinica frame = new Clinica();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -59,6 +62,9 @@ public class Clinica extends JFrame {
 	 * Create the frame.
 	 */
 	public Clinica() {
+		setResizable(false);
+		
+		//CONTENIDO DE LA VENTANA
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -113,13 +119,13 @@ public class Clinica extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			@SuppressWarnings({ "deprecation" })
 			public void actionPerformed(ActionEvent e) {
-				ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
+				
 				
 				
 				try {
 					conect.conectar();
 					
-					
+					//NOS CONECTAMOS Y HACEMOS UNA BÚSQUEDA EN DOS TABLAS, PARA SABER SI EL USUARIO ES CLIENTE O ADMINISTRADOR
 					String sentencia="SELECT * FROM Cliente WHERE NombreUsuario= '"+Usuario_ingresar.getText()+"'AND Contrasena = '"+Contrasena_ingresar.getText()+"'  ";
 					
 					String sentencia2="SELECT * FROM Administrador WHERE NombreAdministrador= '"+Usuario_ingresar.getText()+"'AND Contrasena = '"+Contrasena_ingresar.getText()+"'  ";
@@ -131,7 +137,7 @@ public class Clinica extends JFrame {
 					
 					if(resultado.next()) {
 						
-						
+						//SI EL USUARIO ES CLIENTE
 						 usuarioCorrecto=resultado.getString(1);
 						 contrasenaCorrecta=resultado.getString(2);
 						 
@@ -139,7 +145,7 @@ public class Clinica extends JFrame {
 						JOptionPane.showMessageDialog(null, "Login correcto");
 						
 						
-						
+						//ABRIMOS LA VENTANA PRINCIPAL DE CLIENTE
 						Principal_cliente v1= new Principal_cliente();
 						v1.setVisible(true);
 						guardarUsuario=Usuario_ingresar.getText();
@@ -148,10 +154,14 @@ public class Clinica extends JFrame {
 						
 					}
 					else if (resultado2.next()) {
+						//SI EL USUARIO ES ADMINISTRADOR
+						
 						 usuarioCorrecto=resultado2.getString(1);
 						 contrasenaCorrecta=resultado2.getString(2);
 						JOptionPane.showMessageDialog(null, "Login correcto");
 						
+						
+						//ABRIMOS LA VENTANA DE ADMINISTRADOR
 						Principal_administrador v1= new Principal_administrador();
 						v1.setVisible(true);
 						guardarUsuario=Usuario_ingresar.getText();
@@ -163,6 +173,8 @@ public class Clinica extends JFrame {
 					
 					
 					else {
+						
+						//SI NINGÚN USUARIO Y CONTRASEÑA COINCIDE, DAMOS UN MENSAJE DE ERROR Y LE PEDIMOS QUE VUELVA A INTENTARLO
 						JOptionPane.showMessageDialog(null, "error de login, vuelva a intentarlo");
 					}
 					

@@ -30,6 +30,7 @@ public class Principal_cliente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	//CONEXIÓN A LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
 	/**
@@ -52,6 +53,7 @@ public class Principal_cliente extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal_cliente() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -61,6 +63,8 @@ public class Principal_cliente extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		//CONTENIDO DEL FRAME
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
@@ -80,13 +84,14 @@ public class Principal_cliente extends JFrame {
 					
 					
 					conect.conectar();
-					
+					//BUSQUEDA DE LOS DATOS DE LA MASCOTA
 					 String sentencia= "SELECT idPaciente, Nombre, Fecha_Nacimiento, Especie, Raza, Peso, Vacuna_rabia, Cliente_idCliente, Usuario_Paciente FROM Paciente  WHERE Usuario_Paciente = '"+Clinica.guardarUsuario+"'";
 					
 					ResultSet resultado = conect.ejecutarSelect(sentencia);
 					
 					while(resultado.next()) {
 						try {
+							//CAMBIO DE FORMATO DE LA FECHA A UN FORMATO MÁS COMÚN (DD/MM/YYYY)
 						String fecha=resultado.getString("Fecha_Nacimiento");
 						String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
 						String formatoJava="dd/MM/yyyy";
@@ -98,6 +103,7 @@ public class Principal_cliente extends JFrame {
 							java.util.Date fecha1 = formato1.parse(fecha);
 							String fechaformateada = formato2.format(fecha1);
 							
+							//AÑADIMOS LOS DATOS DE LA MASCOTA A LOS ESTÁTICOS
 							Mascotas.nuevaFechaAnimal=fechaformateada;
 							Mascotas.nuevaraza=resultado.getString("Raza");
 							Mascotas.nuevoEspecie=resultado.getString("Especie");
@@ -120,7 +126,7 @@ public class Principal_cliente extends JFrame {
 					
 					
 				
-				Datos a;
+				//ABRIR VENTANA MASCOTAS
 				Mascotas vMascotas = new Mascotas();
 				vMascotas.setVisible(true);
 				
@@ -143,6 +149,7 @@ public class Principal_cliente extends JFrame {
 		btnNewButton.setBounds(241, 196, 132, 118);
 		contentPane.add(btnNewButton);
 		
+		//BOTÓN PARA ABRIR LA VENTANA DE LOS DATOS
 		JButton btnNewButton_1 = new JButton("Datos personales");
 		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\images.jpg"));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -156,11 +163,13 @@ public class Principal_cliente extends JFrame {
 							
 							conect.conectar();
 							
+							//BÚSQUEDA DE LOS DATOS EN LA TABLA DE CLIENTE
 							 String sentencia= "SELECT idCliente, Nombre, Apellidos, Fecha_Nacimiento, Email, Telefono, Seguro, NombreUsuario, Contrasena FROM Cliente  WHERE NombreUsuario = '"+Clinica.guardarUsuario+"'";
 							
 							ResultSet resultado = conect.ejecutarSelect(sentencia);
 							
 							while(resultado.next()) {
+								//CAMBIO DE FORMATO DE LA FECHA A UN FORMATO MÁS COMÚN (DD/MM/YYYY)
 								String fecha=resultado.getString("Fecha_Nacimiento");
 								String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
 								String formatoJava="dd/MM/yyyy";
@@ -171,6 +180,9 @@ public class Principal_cliente extends JFrame {
 								
 									java.util.Date fecha1 = formato1.parse(fecha);
 									String fechaformateada = formato2.format(fecha1);
+									
+									
+									//AÑADIMOS LOS DATOS DEL CLIENTE A LOS ESTÁTICOS
 									
 								Datos.nuevaFecha=fechaformateada;
 								Datos.nuevotelef=resultado.getString("Telefono");
@@ -191,12 +203,8 @@ public class Principal_cliente extends JFrame {
 							
 							
 							
-						
+						//ABRIR LA VENTANA DE DATOS
 						Datos a = new Datos();
-						
-						
-						
-						
 						a.setVisible(true);
 						
 						}
@@ -219,6 +227,8 @@ public class Principal_cliente extends JFrame {
 		btnNewButton_1.setBounds(457, 196, 141, 118);
 		contentPane.add(btnNewButton_1);
 		
+		//BOTON PARA COGER CITAS
+		
 		JButton btnNewButton_2 = new JButton("Coger cita");
 		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\radiologia.jpg"));
 		btnNewButton_2.setFont(new Font("SansSerif", Font.PLAIN, 12));
@@ -228,6 +238,7 @@ public class Principal_cliente extends JFrame {
 				
 				Citas vCitas;
 				try {
+					//ABRIR LA VENTANA DE CITAS
 					vCitas = new Citas();
 					vCitas.setVisible(true);
 				} catch (ParseException e1) {
@@ -262,10 +273,12 @@ public class Principal_cliente extends JFrame {
 		panelito.add(atras);
 		
 		atras.setName("volver");
+		//BOTÓN PARA VOLVER HACIA ATRÁS
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					//ABRIR LA VENTANA ANTERIOR
 					Clinica a = new Clinica();
 					a.setVisible(true);
 					dispose();
@@ -308,6 +321,7 @@ public class Principal_cliente extends JFrame {
 		
 		JLabel lblNewLabel_4 = new JLabel();
 		try {
+			//SELECCIONAR LA RECOMENDACIÓN 
 			conect.conectar();
 			String Sentencia = "SELECT Recomendacion FROM Recomendaciones";
 			
@@ -316,7 +330,7 @@ public class Principal_cliente extends JFrame {
 			while(resultado.next()) {
 				String recomendacion = resultado.getString("Recomendacion");
 				
-				
+				//MOSTRAR LA ULTIMA RECOMENDACIÓN ESCRITA POR EL ADMINISTRADOR
 				lblNewLabel_4.setText(recomendacion);
 				
 			}

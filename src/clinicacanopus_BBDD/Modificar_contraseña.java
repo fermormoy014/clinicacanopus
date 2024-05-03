@@ -30,6 +30,7 @@ public class Modificar_contraseña extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JPasswordField txtNewContrasena;
+	//CONEXIÓN A LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
 	/**
@@ -52,6 +53,7 @@ public class Modificar_contraseña extends JFrame {
 	 * Create the frame.
 	 */
 	public Modificar_contraseña() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -62,6 +64,7 @@ public class Modificar_contraseña extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//CONTENIDO DEL FRAME
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
 		lblNewLabel.setBounds(43, 11, 172, 80);		
@@ -89,6 +92,7 @@ public class Modificar_contraseña extends JFrame {
         panelito.add(atras);
 		
 		atras.setName("volver");
+		//BOTÓN DE VOLVER A LA VENTANA ANTERIOR
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -140,14 +144,17 @@ public class Modificar_contraseña extends JFrame {
         panel.add(txtContrasena);
 		
 		JButton btnNewButton = new JButton("Modificar contraseña");
+		//BOTÓN PARA MODIFICAR LA CONTRASEÑA
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					//CONEXIÓN
 					conect.conectar();
 					
 					
 					@SuppressWarnings("deprecation")
+					//SENTENCIA QUE BUSCA LOS DATOS DE LA TABLA CLIENTE DONDE EL USUARIO Y LA CONTRASEÑA SEA LA MISMA QUE LA QUE SE HA INTRODUCIDO POR TECLADO
 					String sentencia="SELECT * FROM Cliente WHERE NombreUsuario= '"+txtUsuario.getText()+"'AND Contrasena = '"+txtContrasena.getText()+"'  ";
 					
 					 ResultSet resultado = conect.ejecutarSelect(sentencia) ;
@@ -156,7 +163,7 @@ public class Modificar_contraseña extends JFrame {
 					 
 					 if(resultado.next()) {
 							
-							
+							//SI ES CORRECTA LA BÚSQUEDA, GUARDA EL USUARIO Y LA CONTRASEÑA
 						 usuarioCorrecto=resultado.getString(1);
 						 contrasenaCorrecta=resultado.getString(2);
 						 
@@ -166,8 +173,10 @@ public class Modificar_contraseña extends JFrame {
 						
 						try {
 							@SuppressWarnings("deprecation")
+							//USAMOS LA SENTENCIA UPDATE PARA ACTUALIZAR LA ANTIGUA CONTRASEÑA CON LA NUEVA
 							String sentencia1 = "UPDATE Cliente SET Contrasena ='"+txtNewContrasena.getText()+"' WHERE NombreUsuario = '"+txtUsuario.getText()+"'";
 							conect.ejecutarInsertDeleteUpdate(sentencia1);
+							//MENSAJE DE CONFIRMACIÓN
 							JOptionPane.showMessageDialog(null, "Cambio de contraseña realizado");
 						}
 						catch(Exception e2) {
@@ -177,6 +186,7 @@ public class Modificar_contraseña extends JFrame {
 						
 					}
 					 else {
+						 //SI HAY ALGÚN ERROR, MOSTRAR EN MENSAJE
 						 JOptionPane.showMessageDialog(null, "Error, el usuario o la contraseña no coincide");
 					 }
 					

@@ -30,6 +30,7 @@ public class Datos extends JFrame  {
 	public JPanel contentPane;
 	JTextField recibe;
 	
+	//METODOS ESTÁTICOS PARA GUARDAR LOS DATOS
 	static String nuevonombre;
 	 
 	static String nuevoDNI;
@@ -61,6 +62,7 @@ public class Datos extends JFrame  {
 	 * @throws SQLException 
 	 */
 	public Datos() throws SQLException {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -68,9 +70,10 @@ public class Datos extends JFrame  {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Dimension screenSize= Toolkit.getDefaultToolkit().getScreenSize();//Obtiene el tamaño de la pantalla del dispositivo
 		
+		//CONEXION CON LA BASE DE DATOS
 		ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 
-
+		//CONTENIDO DEL FRAME
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -88,7 +91,7 @@ public class Datos extends JFrame  {
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre y apellido");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		lblNewLabel_1.setText(nuevoNombre);
 		lblNewLabel_1.setForeground(new Color(255, 160, 122));
 		lblNewLabel_1.setBounds(21, 136, 124, 20);
@@ -128,12 +131,14 @@ public class Datos extends JFrame  {
 		
 		JLabel Usuario_nombre = new JLabel("New label");
 		Usuario_nombre.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		Usuario_nombre.setText(nuevonombre);
 		Usuario_nombre.setBounds(152, 11, 160, 14);
 		panel.add(Usuario_nombre);
 		
 		JLabel Dni_text = new JLabel("New label");
 		Dni_text.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		Dni_text.setText(nuevoDNI);
 		Dni_text.setBounds(152, 42, 150, 14);
 		panel.add(Dni_text);
@@ -143,18 +148,21 @@ public class Datos extends JFrame  {
 		
 		JLabel Fechanacimiento = new JLabel("New label");
 		Fechanacimiento.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		Fechanacimiento.setText(nuevaFecha);
 		Fechanacimiento.setBounds(152, 78, 140, 14);
 		panel.add(Fechanacimiento);
 		
 		JLabel Email = new JLabel("New label");
 		Email.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		Email.setText(nuevoEmail);
 		Email.setBounds(152, 116, 160, 14);
 		panel.add(Email);
 		
 		JLabel Telefono = new JLabel("New label");
 		Telefono.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		//AÑADIMOS LOS DATOS DEL USUARIO COMO CONTENIDO DEL LABEL
 		Telefono.setText(nuevotelef);
 		Telefono.setBounds(152, 152, 160, 14);
 		panel.add(Telefono);
@@ -164,7 +172,7 @@ public class Datos extends JFrame  {
 		
 		
 		
-		
+		//SI LA VARIABLE DEL SEGURO ES 0, NO TIENE SEGURO, SI ES 1, TIENE SEGURO
 		
 		if(nuevoSeguro.equals("0")) {
 			Seguro.setText("No tiene seguro");
@@ -179,19 +187,7 @@ public class Datos extends JFrame  {
 		
 		
 		
-		/*while(nuevoSeguro == "0") {
-			Seguro.setText("No tiene seguro");
-			
-			
-			if(nuevoSeguro == "1") {
-				Seguro.setText("tiene seguro");
-				
-				
-			}
-			else {
-				break;
-			}
-		}*/
+	
 		
 		
 		
@@ -232,6 +228,7 @@ public class Datos extends JFrame  {
             JButton atras = new JButton("Volver");
             atras.setForeground(new Color(255, 128, 64));
             
+            //BOTÓN DE VOLVER PARA LA ANTERIOR VENTANA
     		atras.setName("volver");
     		atras.addActionListener(new ActionListener() {
     			public void actionPerformed(ActionEvent e) {
@@ -255,6 +252,8 @@ public class Datos extends JFrame  {
             
             
             JButton btnNewButton = new JButton("¿Desea modificar la contraseña?");
+            
+            //BOTÓN PARA ABRIR LA VENTANA DE MODIFICAR CONTRASEÑA
             btnNewButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     

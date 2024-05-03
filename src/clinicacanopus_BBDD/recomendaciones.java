@@ -26,6 +26,7 @@ public class recomendaciones extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	static String recomendacion;
+	//CONEXIÓN A LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 	/**
 	 * Launch the application.
@@ -47,6 +48,7 @@ public class recomendaciones extends JFrame {
 	 * Create the frame.
 	 */
 	public recomendaciones() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -56,9 +58,11 @@ public class recomendaciones extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		//CONTENIDO DEL FRAME
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
+		
 		lblNewLabel.setBounds(43, 11, 172, 80);		
 		contentPane.add(lblNewLabel);
 		
@@ -85,6 +89,7 @@ public class recomendaciones extends JFrame {
         atras.setBounds(559, 3, 89, 23);
         panelito.add(atras);
 		
+        //BOTÓN PARA VOLVER HACIA ATRÁS
 		atras.setName("volver");
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,16 +126,19 @@ public class recomendaciones extends JFrame {
         panel.add(textField);
         textField.setColumns(10);
         
+        //BOTÓN PARA GUARDAR
         JButton btnNewButton = new JButton("Guardar");
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
         		try {
         			conect.conectar();
+        			//INSERTAR LA RECOMENDACIÓN EN LA BASE DE DATOS
         			String sentencia = "INSERT INTO Recomendaciones (Recomendacion) VALUES ( '"+textField.getText()+"')";
         			
         			conect.ejecutarInsertDeleteUpdate(sentencia);
         			
+        			//MENSAJE DE CONFIRMACIÓN
         			JOptionPane.showMessageDialog(null, "Recomendación creada");
         			
         		}catch(Exception e3) {

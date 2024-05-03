@@ -76,6 +76,7 @@ public class Registro extends JFrame {
 	 * Create the frame.
 	 */
 	public Registro() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -437,6 +438,7 @@ public class Registro extends JFrame {
 										
 										conect.ejecutarInsertDeleteUpdate(sentencia);
 										conect.ejecutarInsertDeleteUpdate(sentencia2);
+										JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
 							}
 							
 							
@@ -465,6 +467,9 @@ public class Registro extends JFrame {
 					} 
 					
 					
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Algún campo está vacio, intentelo de nuevo");
 				}
 				
 				

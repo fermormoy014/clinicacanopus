@@ -50,6 +50,7 @@ public class Principal_administrador extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal_administrador() {
+		setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -68,7 +69,7 @@ public class Principal_administrador extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		
-		
+		//BOTÓN PARA REGISTRAR NUEVOS USUARIOS
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\3534139.png"));
 		btnNewButton.setFont(new Font("SansSerif", Font.PLAIN, 13));
@@ -78,6 +79,7 @@ public class Principal_administrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					//ABRIR PÁGINA REGISTRO
 					Registro a = new Registro();
 					a.setVisible(true);
 					dispose();
@@ -95,7 +97,7 @@ public class Principal_administrador extends JFrame {
 		
 		
 		
-		
+		//BOTÓN PARA GENERAR RECOMENDACIONES
 		JButton btnNewButton_2 = new JButton("");
 		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\personales1.png"));
 		btnNewButton_2.setFont(new Font("SansSerif", Font.PLAIN, 13));
@@ -104,6 +106,7 @@ public class Principal_administrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					//ABRIR PÁGINA DE RECOMENDACIONES
 					recomendaciones a = new recomendaciones();
 					a.setVisible(true);
 					dispose();
@@ -148,6 +151,7 @@ public class Principal_administrador extends JFrame {
 		lblNewLabel_2.setBounds(141, 158, 132, 22);
 		contentPane.add(lblNewLabel_2);
 		
+		//BOTÓN PARA CERRAR LA SESIÓN
 		JButton btnNewButton_1 = new JButton("Cerrar Sesion");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

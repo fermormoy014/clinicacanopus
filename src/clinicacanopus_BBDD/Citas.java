@@ -48,13 +48,15 @@ public class Citas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	//CONEXION CON LA BASE DE DATOS
 	ConexionMySQL conect = new ConexionMySQL("freedb_clinica.canopus", "e*c@PPqX4bzdzfY", "freedb_clinica_canopus");
 	private Panel panel_1;
 	private Button atras;
 	private JLabel lblNewLabel;
 
 	/**
-	 * Launch the application.
+	 * LANZAMOS LA APLICACION
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -70,11 +72,13 @@ public class Citas extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * CREAMOS EL FRAME
 	 * @throws ParseException 
 	 */
 	public Citas() throws ParseException {
+		setResizable(false);
 		
+		//CONTENIDO DEL FRAME
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
@@ -163,10 +167,12 @@ public class Citas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
+					//CUANDO TENEMOS LOS DATOS SELECCIONADOS, HACEMOS UNA BÚSQUEDA EN LA TABLA DE LAS CITAS
 					conect.conectar();
 					
 					String sentencia = "SELECT * FROM Cita ";
 					
+					//ESTE METODO CAMBIA EL FORMATO DE LA FECHA A UN FORMATO MÁS HABITUAL
 					String fecha=dateChooser.getDate().toString();
 					String formatoSQL = "EEE MMM dd HH:mm:ss zzz yyyy";
 					String formatoJava="dd/MM/yyyy";
@@ -183,13 +189,15 @@ public class Citas extends JFrame {
 					ResultSet resultado = conect.ejecutarSelect(sentencia);
 					
 					boolean encontrado=false;
-					
+					//REALIZAMOS UN BUCLE QUE BUSCA SI HAY ALGÚN DIA Y HORA QUE COINCIDA CON LA CITA INTRODUCIDA
 					while(resultado.next() && !encontrado) {
 						
 						String fecha2 =resultado.getString("Fecha_cita");
 						String Hora = resultado.getString("Hora");
 						
 						if(fecha2.equals(fechaformateada) && Hora.equals(String.valueOf(comboBox_hora.getSelectedItem()))) {
+							
+							//SI COINCIDE, MENSAJE DE OCUPADA
 							
 							JOptionPane.showMessageDialog(null, "esa hora esta ocupada, por favor, elija otra hora");
 							encontrado=true;
@@ -202,7 +210,7 @@ public class Citas extends JFrame {
 								
 								
 								
-								
+								//SI ESTÁ LIBRE, QUE INSERTE LOS DATOS EN LA TABLA CITA
 							
 							String sentencia2 = "INSERT INTO Cita (Fecha_cita, Mascota, Motivo, Hora, NombreUsuario) VALUES  ('"+fechaformateada+"','"+String.valueOf(comboBox_1.getSelectedItem())+"','"
 									+String.valueOf(comboBox.getSelectedItem())+"', '"+String.valueOf(comboBox_hora.getSelectedItem())+"','"+Clinica.guardarUsuario+"')";
@@ -304,13 +312,18 @@ public class Citas extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					
+					//PARA CANCELAR LA CITA, LANZAMOS UN MENSAJE DE SI/NO, PARA SABER SI EL USUARIO ESTÁ SEGURO
 					int respuesta=JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres borrar la cita?", "Confirmacion", JOptionPane.YES_NO_OPTION);
 					if(respuesta==JOptionPane.YES_OPTION) {
+						//SI LA RESPUESTA ES SI, HACEMOS UNA BÚSQUEDA EN LA BASE DE DATOS, Y ELIMINAMOS LA CITA
 						conect.conectar();
 						try {
 						String sentencia = "DELETE FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"'";
 						
 						conect.ejecutarInsertDeleteUpdate(sentencia);
+						
+						//MENSAJE DE CONFIRMACIÓN
 						
 						JOptionPane.showMessageDialog(null, "reserva de cita eliminada");
 						}
@@ -320,6 +333,7 @@ public class Citas extends JFrame {
 						
 					}
 					else {
+						//SI NO LA ELIMINA, MENSAJE DE ERROR
 						JOptionPane.showMessageDialog(null, "error al eliminar la cita");
 					}
 					
@@ -335,8 +349,9 @@ public class Citas extends JFrame {
 		btnNewButton.setBounds(514, 36, 112, 23);
 		panel_2.add(btnNewButton);
 		
-		JLabel Fecha_prox = new JLabel("New label");
+		JLabel Fecha_prox = new JLabel();
 		try {
+			//MOSTRAMOS LA FECHA DE LA PRÓXIMA CITA
 			conect.conectar();
 			String sentencia = "SELECT Fecha_cita FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"' ";
 			
@@ -355,8 +370,10 @@ public class Citas extends JFrame {
 		Fecha_prox.setBounds(42, 40, 100, 14);
 		panel_2.add(Fecha_prox);
 		
-		JLabel Hora_prox = new JLabel("New label");
+		JLabel Hora_prox = new JLabel();
 		try {
+			
+			//MOSTRAMOS LA HORA DE LA PRÓXIMA CITA
 			conect.conectar();
 			String sentencia = "SELECT Hora FROM Cita WHERE NombreUsuario = '"+Clinica.guardarUsuario+"' ";
 			

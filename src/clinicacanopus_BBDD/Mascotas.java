@@ -25,8 +25,9 @@ public class Mascotas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	//ESTÁTICOS PARA GUARDAR LOS DATOS TEMPORALES DE LA MASCOTA
 	static String nuevoidentificador;
-	 
 	static String nuevaraza;
 	static String nuevaFechaAnimal;
 	static String nuevoPeso;
@@ -53,6 +54,7 @@ public class Mascotas extends JFrame {
 	 * Create the frame.
 	 */
 	public Mascotas() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 445);
 		contentPane = new JPanel();
@@ -63,6 +65,7 @@ public class Mascotas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		//CONTENIDO DEL FRAME
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Usuario 1\\Documents\\GitHub\\clinicacanopus\\src\\clinicacanopus_BBDD\\Logo_clinica.png"));
 		lblNewLabel.setBounds(21, 11, 161, 67);
@@ -106,36 +109,42 @@ public class Mascotas extends JFrame {
 		
 		JLabel Identificador_lbl = new JLabel("New label");
 		Identificador_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Identificador_lbl.setText(nuevoidentificador);
 		Identificador_lbl.setBounds(164, 23, 120, 14);
 		panel.add(Identificador_lbl);
 		
 		JLabel Especie_lbl = new JLabel("New label");
 		Especie_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Especie_lbl.setText(nuevoEspecie);
 		Especie_lbl.setBounds(164, 48, 109, 25);
 		panel.add(Especie_lbl);
 		
 		JLabel Raza_lbl = new JLabel("New label");
 		Raza_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Raza_lbl.setText(nuevaraza);
 		Raza_lbl.setBounds(164, 73, 120, 14);
 		panel.add(Raza_lbl);
 		
 		JLabel Peso_lbl = new JLabel("New label");
 		Peso_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Peso_lbl.setText(nuevoPeso);
 		Peso_lbl.setBounds(164, 98, 96, 14);
 		panel.add(Peso_lbl);
 		
 		JLabel Fecha_lbl = new JLabel("New label");
 		Fecha_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//USAMOS EL ESTÁTICO PARA DARLE VALOR DE LOS DATOS DE LA MASCOTA
 		Fecha_lbl.setText(nuevaFechaAnimal);
 		Fecha_lbl.setBounds(164, 123, 96, 14);
 		panel.add(Fecha_lbl);
 		
 		JLabel Vacuna_lbl = new JLabel("New label");
 		Vacuna_lbl.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		//SI EL VALOR DE VACUNA ES 0, NO ESTÁ VACUNADO, SI ES 1, SI LO ESTÁ
 		if(nuevoVacuna.equals("1")) {
 			Vacuna_lbl.setText("esta vacunado");
 		}
@@ -178,6 +187,7 @@ public class Mascotas extends JFrame {
         panelito.add(atras);
 		
 		atras.setName("volver");
+		//BOTÓN DE VOLVER A LA VENTANA ANTERIOR
 		atras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
